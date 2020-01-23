@@ -1,0 +1,6 @@
+[submodule ".vim/pack/git/start/ale"]
+	path = .vim/pack/git/start/ale
+	url = git@github.com:dense-analysis/ale.git
+[submodule ".vim/pack/git/start/omnisharp"]
+	path = .vim/pack/git/start/omnisharp
+	url = git@github.com:omnisharp/omnisharp-vim
