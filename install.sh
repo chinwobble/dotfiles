@@ -1,8 +1,8 @@
 #!/bin/bash
 
-BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+BASEDIR="~/dotfiles"
 
 # vim
-ln -s ${BASEDIR}/vimrc ~/.vimrc
+ln -s ~/dotfiles/.vimrc ~/.vimrc
 
 
