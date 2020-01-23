@@ -1,0 +1,4 @@
+
+
+
+alias gitpr='EDITOR="C:/Program Files/Git/usr/bin/vim" hub pull-request'
