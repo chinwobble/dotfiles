@@ -14,7 +14,6 @@ set number
 let g:ale_fixers = ['prettier', 'eslint']
 let g:ale_fix_on_save = 1
 set incsearch
-let g:OmniSharp_server_path = 'C:\OmniSharp\omnisharp.win-x64\OmniSharp.exe'
 let g:OmniSharp_server_stdio = 1
 set completeopt=longest,menuone,preview
 let g:omnicomplete_fetch_full_documentation = 1

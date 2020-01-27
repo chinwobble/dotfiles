@@ -4,3 +4,6 @@
 [submodule ".vim/pack/git/start/omnisharp"]
 	path = .vim/pack/git/start/omnisharp
 	url = git@github.com:omnisharp/omnisharp-vim
+[submodule ".vim\\pack\\git\\start\\vim-sensible"]
+	path = .vim/pack/git/start/vim-sensible
+	url = git@github.com:tpope/vim-sensible
