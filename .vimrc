@@ -31,6 +31,8 @@ let g:OmniSharp_highlight_groups = {
 let g:ale_linters = {'cs': ['omnisharp']}
 let g:OmniSharp_highlight_types = 3
 
+autocmd GUIEnter * simalt ~x
+
 autocmd BufReadPost,BufWritePost  *.cs %substitute/^\( \+\)\1/\1/e
 autocmd BufWritePre               *.cs %substitute/^ \+/&&/e
 augroup omnisharp_commands
