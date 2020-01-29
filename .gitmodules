@@ -10,3 +10,6 @@
 [submodule ".vim\\pack\\git\\start\\vim-expand-region"]
 	path = .vim\\pack\\git\\start\\vim-expand-region
 	url = git@github.com:terryma/vim-expand-region
+[submodule ".vim\\pack\\git\\start\\dracula"]
+	path = .vim\\pack\\git\\start\\dracula
+	url = git@github.com:dracula/vim.git

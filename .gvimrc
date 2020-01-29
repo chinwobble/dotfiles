@@ -1,2 +1,3 @@
-set guifont=Consolas:h36:cANSI:qDRAFT
+set guifont=Consolas:h28:cANSI:qDRAFT
 colorscheme evening
+set guioptions=egmrLtT "egmt"
