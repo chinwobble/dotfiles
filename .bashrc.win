@@ -2,3 +2,7 @@
 
 
 alias gitpr='EDITOR="C:/Program Files/Git/usr/bin/vim" hub pull-request'
+GIT_PS1_SHOWDIRTYSTATE=1
+GIT_PS1_SHOWUNTRACKEDFILES=1
+GIT_PS1_SHOWSTASHSTATE=1
+GIT_PS1_SHOWUPSTREAM="auto verbose"
