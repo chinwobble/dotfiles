@@ -13,3 +13,9 @@
 [submodule ".vim/pack/git/start/dracula"]
 	path = .vim/pack/git/start/dracula
 	url = git@github.com:dracula/vim.git
+[submodule ".vim/pack/git/start/airline"]
+	path = .vim/pack/git/start/airline
+	url = git@github.com:vim-airline/vim-airline.git
+[submodule ".vim/pack/git/start/fugitive"]
+	path = .vim/pack/git/start/fugitive
+	url = git@github.com:tpope/vim-fugitive.git
