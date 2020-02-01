@@ -98,6 +98,9 @@ nnoremap <Leader>ev :e ~/.vimrc<CR>
 
 " close both files for a diff
 nnoremap <silent> <leader>q :quitall<CR>
+
+" airline
+let g:airline_section_z = "%p%%%4l:%3v"
 let g:airline_mode_map = {
       \ '__'     : '-',
       \ 'c'      : 'C',
