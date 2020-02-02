@@ -11,6 +11,7 @@ set wildmenu
 set ruler
 set number
 set shiftwidth=4
+set clipboard=unnamed
 
 let g:ale_fixers = ['prettier', 'eslint']
 let g:ale_fix_on_save = 1
@@ -43,12 +44,12 @@ augroup omnisharp_commands
     " any other messages in this space including e.g. ALE linting messages.
     autocmd CursorHold *.cs OmniSharpTypeLookup
 
-    " The following commands are contextual, based on the cursor position.
     autocmd FileType cs nnoremap <buffer> gd :OmniSharpGotoDefinition<CR>
     autocmd FileType cs nnoremap <buffer> <Leader>fi :OmniSharpFindImplementations<CR>
     autocmd FileType cs nnoremap <buffer> <Leader>fs :OmniSharpFindSymbol<CR>
     autocmd FileType cs nnoremap <buffer> <Leader>fu :OmniSharpFindUsages<CR>
 
+    " The following commands are contextual, based on the cursor position.
     " Finds members in the current buffer
     autocmd FileType cs nnoremap <buffer> <Leader>fm :OmniSharpFindMembers<CR>
 
@@ -83,14 +84,19 @@ nnoremap <Leader>cf :OmniSharpCodeFormat<CR>
 nnoremap <Leader>ss :OmniSharpStartServer<CR>
 nnoremap <Leader>sp :OmniSharpStopServer<CR>
 
+" ctrl-s to save
+nmap <C-s> <esc>:w<CR>
+imap <C-s> <esc>:w<CR>
+
 " Enable snippet completion
 " let g:OmniSharp_want_snippet=1
 
+" hotkeys to move lines up and down
+vnoremap <A-j> :m '>+1<CR>gv=gv
+inoremap <A-k> <Esc>:m .-2<CR>==gi
 nnoremap <A-j> :m .+1<CR>==
 nnoremap <A-k> :m .-2<CR>==
 inoremap <A-j> <Esc>:m .+1<CR>==gi
-inoremap <A-k> <Esc>:m .-2<CR>==gi
-vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
 
 " open vimrc
