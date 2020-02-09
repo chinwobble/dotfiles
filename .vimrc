@@ -31,6 +31,8 @@ let g:OmniSharp_highlight_groups = {
 
 let g:ale_linters = {'cs': ['omnisharp']}
 let g:OmniSharp_highlight_types = 3
+" exclude dotnet build artifacts
+let g:ctrlp_custom_ignore = 'bin\|obj\|git\|DS_Store\|node_modules' 
 
 autocmd GUIEnter * simalt ~x
 
