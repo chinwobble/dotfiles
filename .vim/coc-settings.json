@@ -1,0 +1,9 @@
+{
+    "coc.preferences.hoverTarget": "preview",
+    "signature.target": "echo",
+    "suggest.detailField": "preview",
+    "suggest.enablePreview": "true",
+    "suggest.localityBonus": "true"
+}
+
+

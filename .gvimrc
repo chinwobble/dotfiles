@@ -1,3 +1,3 @@
 set guifont=Consolas:h28:cANSI:qDRAFT
-colorscheme evening
+colorscheme dracula
 set guioptions=egmrLtT "egmt"
