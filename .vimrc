@@ -34,8 +34,6 @@ let g:OmniSharp_highlight_types = 3
 
 autocmd GUIEnter * simalt ~x
 
-autocmd BufReadPost,BufWritePost  *.cs %substitute/^\( \+\)\1/\1/e
-autocmd BufWritePre               *.cs %substitute/^ \+/&&/e
 augroup omnisharp_commands
     autocmd!
 
@@ -66,7 +64,7 @@ augroup omnisharp_commands
     " Find all code errors/warnings for the current solution and populate the quickfix window
     autocmd FileType cs nnoremap <buffer> <Leader>cc :OmniSharpGlobalCodeCheck<CR>
 augroup END
-
+autocmd FileType yml,json setlocal shiftwidth=2 sts=2 tabstop=2
 " Contextual code actions (uses fzf, CtrlP or unite.vim when available)
 nnoremap <Leader><Space> :OmniSharpGetCodeActions<CR>
 " Run code actions with text selected in visual mode to extract method

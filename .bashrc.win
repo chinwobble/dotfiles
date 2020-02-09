@@ -1,7 +1,4 @@
-
-
-
-alias gitpr='EDITOR="C:/Program Files/Git/usr/bin/vim" hub pull-request'
+alias gitpr='EDITOR="C:/Program Files/Git/usr/bin/vim" git push && hub pull-request'
 alias gitmfm='git pull && git merge origin/master'
 GIT_PS1_SHOWDIRTYSTATE=1
 GIT_PS1_SHOWUNTRACKEDFILES=1
