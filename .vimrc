@@ -12,6 +12,9 @@ set ruler
 set number
 set shiftwidth=4
 set clipboard=unnamed
+set winminheight=0
+map <C-J> <C-W>j<C-W>_
+map <C-K> <C-W>k<C-W>_
 
 let g:ale_fixers = ['prettier', 'eslint']
 let g:ale_fix_on_save = 1
