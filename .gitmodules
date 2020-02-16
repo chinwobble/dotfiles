@@ -26,3 +26,6 @@
 [submodule ".vim/pack/git/start/tabular"]
 	path = .vim/pack/git/start/tabular
 	url = git@github.com:godlygeek/tabular
+[submodule ".vim/pack/git/start/vimwiki"]
+	path = .vim/pack/git/start/vimwiki
+	url = git@github.com:vimwiki/vimwiki
