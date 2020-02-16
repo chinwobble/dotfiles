@@ -23,3 +23,6 @@
 [submodule "./.vim/pack/git/start/ctrlp"]
 	path = .vim/pack/git/start/ctrlp
 	url = git@github.com:ctrlpvim/ctrlp.vim
+[submodule ".vim/pack/git/start/tabular"]
+	path = .vim/pack/git/start/tabular
+	url = git@github.com:godlygeek/tabular
