@@ -12,6 +12,8 @@ set ruler
 set number
 set shiftwidth=4
 set clipboard=unnamed
+
+" navigate vim windows
 set winminheight=0
 map <C-J> <C-W>j<C-W>_
 map <C-K> <C-W>k<C-W>_
@@ -143,3 +145,11 @@ function! s:align()
     call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
   endif
 endfunction
+
+autocmd BufRead * colorscheme dracula
+
+let g:vimwiki_list = [
+  \ {'path': '~/vimwiki/','syntax': 'markdown', 'ext': '.md' }
+  \ ]
+
+
