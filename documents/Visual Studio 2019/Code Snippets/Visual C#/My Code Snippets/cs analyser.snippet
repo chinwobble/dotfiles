@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>CSharp Roslyn diagnostic Analyser</Title>
+			<Author>BA</Author>
+			<Description>Create a C# Diagnostic Analyser</Description>
+			<Shortcut>csanal</Shortcut>
+		</Header>
+		<Snippet>
+			<Imports>
+				<Import>
+					<Namespace>System</Namespace>
+				</Import>
+				<Import>
+					<Namespace>System.Collections.Immutable</Namespace>
+				</Import>
+				<Import>
+					<Namespace>System.Linq</Namespace>
+				</Import>
+				<Import>
+					<Namespace>Microsoft.CodeAnalysis</Namespace>
+				</Import>
+				<Import>
+					<Namespace>Microsoft.CodeAnalysis.CSharp</Namespace>
+				</Import>
+				<Import>
+					<Namespace>Microsoft.CodeAnalysis.CSharp.Syntax</Namespace>
+				</Import>
+				<Import>
+					<Namespace>Microsoft.CodeAnalysis.Diagnostics</Namespace>
+				</Import>
+			</Imports>
+			<Declarations>
+				<Literal>
+					<ID>classname</ID>
+					<ToolTip>Replace with specified name</ToolTip>
+					<Default>MyAnalyzer</Default>
+				</Literal>
+			</Declarations>
+<Code Language="CSharp" kind="file"><![CDATA[
+[DiagnosticAnalyzer(LanguageNames.CSharp)]
+public class $classname$Analyzer : DiagnosticAnalyzer
+{
+    public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics
+        => ImmutableArray.Create($end$);
+
+    public override void Initialize(AnalysisContext context)
+    {
+        context.RegisterSyntaxNodeAction(Analyze, SyntaxKind.InvocationExpression);
+
+        void Analyze(SyntaxNodeAnalysisContext ctx)
+        {
+        }
+	}
+}]]>
+</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>
