@@ -18,9 +18,6 @@
 				<Import>
 					<Namespace>System.Linq</Namespace>
 				</Import>
-				<Import>
-					<Namespace>Microsoft.Extensions.DependencyInjection</Namespace>
-				</Import>
 			</Imports>
 			<Declarations>
 				<Literal>
@@ -30,19 +27,18 @@
 				</Literal>
 			</Declarations>
 			<Code Language="CSharp" kind="file"><![CDATA[
-public class $classname$Tests : IClassFixture<WebHostFixture>
+using TestFixture = WebHostFixture<$classname$>;
+public class $classname$Tests : IClassFixture<TestFixture>
 {
-    private readonly WebHostFixture _webHostFixture;
-    public $classname$Tests(WebHostFixture webHostFixture)
+    private readonly TestFixture _fixture;
+    public $classname$Tests(TestFixture fixture)
     {
-        _webHostFixture = webHostFixture;
+        _fixture = fixture;
     }
 
     [Fact]
     public async Task Test()
     {
-        using var scope = _webHostFixture.ScopeFactory.CreateScope();
-        var sut = scope.ServiceProvider.GetRequiredService<$end$>();
     }
 }]]>
 			</Code>
