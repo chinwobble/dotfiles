@@ -72,6 +72,9 @@ augroup omnisharp_commands
     autocmd FileType cs nnoremap <buffer> <Leader>cc :OmniSharpGlobalCodeCheck<CR>
 augroup END
 autocmd FileType yml,json setlocal shiftwidth=2 sts=2 tabstop=2
+autocmd FileType vimwiki setlocal concealcursor=nvi
+autocmd FileType markdown setlocal shiftwidth=2 sts=2 tabstop=2
+
 " Contextual code actions (uses fzf, CtrlP or unite.vim when available)
 nnoremap <Leader><Space> :OmniSharpGetCodeActions<CR>
 " Run code actions with text selected in visual mode to extract method
@@ -146,10 +149,9 @@ function! s:align()
   endif
 endfunction
 
-autocmd BufRead * colorscheme dracula
-
 let g:vimwiki_list = [
-  \ {'path': '~/vimwiki/','syntax': 'markdown', 'ext': '.md' }
+  \ { 'auto_toc': 1, 'auto_tags': 1, 'auto_diary_index': 1, 'path': '~/vimwiki/','syntax': 'markdown', 'ext': '.md' }
   \ ]
 
-
+" allow <C-A> and <C-X> to increment letters
+set nrformats+=alpha
