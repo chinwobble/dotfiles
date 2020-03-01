@@ -1,8 +1,19 @@
 # Dotfiles
 
-## Getting started
+## Installation
+### Windows
 ```bash
-./install.win.sh
+# in git bash
+cd ~
+git clone git@github.com:chinwobble/dotfiles
+cd dotfiles
+./windows.install.sh
+```
+## Install VS2019 code snippets
+```bash
+# cmd or powershell 
+git clone git@github.com:chinwobble/dotfiles
+xcopy /S /Y dotfiles\documents %OneDrive%\documents
 ```
 
 ## Installing new vim plugins
