@@ -13,7 +13,7 @@ cd dotfiles
 ```bash
 # cmd or powershell 
 git clone git@github.com:chinwobble/dotfiles
-xcopy /S /Y dotfiles\documents %OneDrive%\documents
+xcopy /S /Y "dotfiles\documents" "%OneDrive%\documents"
 ```
 
 ## Installing new vim plugins
