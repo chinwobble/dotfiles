@@ -2,10 +2,10 @@
 <CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
 	<CodeSnippet Format="1.0.0">
 		<Header>
-			<Title>Xunit integration test</Title>
+			<Title>GraphQL InputGraphType`1</Title>
 			<Author>BA</Author>
-			<Description>Create a xunit class</Description>
-			<Shortcut>xitest</Shortcut>
+			<Description>Create a InputGraphType of T</Description>
+			<Shortcut>igt</Shortcut>
 		</Header>
 		<Snippet>
 			<Imports>
@@ -19,30 +19,23 @@
 					<Namespace>System.Threading.Tasks</Namespace>
 				</Import>
 				<Import>
-					<Namespace>Xunit</Namespace>
+					<Namespace>GraphQL.Types</Namespace>
 				</Import>
 			</Imports>
 			<Declarations>
 				<Literal>
-					<ID>classname</ID>
+					<ID>typename</ID>
 					<ToolTip>Replace with specified name</ToolTip>
 					<Default>MyClass</Default>
 				</Literal>
 			</Declarations>
 			<Code Language="CSharp" kind="file"><![CDATA[
-using TestFixture = WebHostFixture<$classname$>;
-public class $classname$Tests : IClassFixture<TestFixture>
+public class $typename$Type : InputObjectGraphType<$typename$>
 {
-    private readonly TestFixture _fixture;
-    public $classname$Tests(TestFixture fixture)
+    public $typename$Type()
     {
-        _fixture = fixture;
-    }
-
-    [Fact]
-    public async Task Test()
-    {
-		$end$
+		Name = nameof($typename$);
+        $end$
     }
 }]]>
 			</Code>

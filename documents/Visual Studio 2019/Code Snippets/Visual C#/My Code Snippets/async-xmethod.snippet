@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>async extension method</Title>
+			<Author>BA</Author>
+			<Description>async extension method</Description>
+			<Shortcut>axmethod</Shortcut>
+		</Header>
+		<Snippet>
+			<Imports>
+				<Import>
+					<Namespace>System</Namespace>
+				</Import>
+				<Import>
+					<Namespace>System.Linq</Namespace>
+				</Import>
+				<Import>
+					<Namespace>System.Threading.Tasks</Namespace>
+				</Import>
+			</Imports>
+			<Declarations>
+				<Literal>
+					<ID>returntype</ID>
+					<ToolTip>Replace with specified name</ToolTip>
+					<Default>Task<></Default>
+				</Literal>
+				<Literal>
+					<ID>methodname</ID>
+					<ToolTip>Replace with specified name</ToolTip>
+					<Default>Mymethod</Default>
+				</Literal>
+				<Literal>
+					<ID>extendedtype</ID>
+					<ToolTip>Replace with specified name</ToolTip>
+					<Default>string</Default>
+				</Literal>
+			</Declarations>
+<Code Language="CSharp" kind="method decl"><![CDATA[public static async $returntype$ $methodname$(this $extendedtype$$end$)
+{
+
+}]]>
+</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>
