@@ -2,10 +2,10 @@
 <CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
 	<CodeSnippet Format="1.0.0">
 		<Header>
-			<Title>GraphQL InputGraphType`1</Title>
+			<Title>GraphQL FieldAsync</Title>
 			<Author>BA</Author>
-			<Description>Create a InputGraphType of T</Description>
-			<Shortcut>igt</Shortcut>
+			<Description>Create FieldAsync</Description>
+			<Shortcut>field</Shortcut>
 		</Header>
 		<Snippet>
 			<Imports>
@@ -24,19 +24,22 @@
 			</Imports>
 			<Declarations>
 				<Literal>
-					<ID>typename</ID>
+					<ID>fieldName</ID>
+					<ToolTip>fieldName</ToolTip>
+					<Default>doWork</Default>
+				</Literal>
+				<Literal>
+					<ID>inputtype</ID>
 					<ToolTip>Replace with specified name</ToolTip>
-					<Default>MyClass</Default>
+					<Default>MyInputType</Default>
 				</Literal>
 			</Declarations>
-			<Code Language="CSharp" kind="file"><![CDATA[public class $typename$Type : InputObjectGraphType<$typename$>
-{
-    public $typename$Type()
-    {
-		Name = nameof($typename$);
-        $end$
-    }
-}]]>
+			<Code Language="CSharp" kind="file"><![CDATA[FieldAsync<BooleanGraphType>(
+                    name: "$fieldName$",
+                    resolve: async ctx =>
+                    {
+                        throw new NotImplementedException();
+                    });]]>
 			</Code>
 		</Snippet>
 	</CodeSnippet>

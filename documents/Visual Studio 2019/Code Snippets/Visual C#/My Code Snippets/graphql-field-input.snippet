@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>GraphQL mutation FieldAsync</Title>
+			<Author>BA</Author>
+			<Description>Create a input FieldAsync</Description>
+			<Shortcut>fieldi</Shortcut>
+		</Header>
+		<Snippet>
+			<Imports>
+				<Import>
+					<Namespace>System</Namespace>
+				</Import>
+				<Import>
+					<Namespace>System.Linq</Namespace>
+				</Import>
+				<Import>
+					<Namespace>System.Threading.Tasks</Namespace>
+				</Import>
+				<Import>
+					<Namespace>GraphQL</Namespace>
+				</Import>
+				<Import>
+					<Namespace>GraphQL.Types</Namespace>
+				</Import>
+			</Imports>
+			<Declarations>
+				<Literal>
+					<ID>fieldName</ID>
+					<ToolTip>fieldName</ToolTip>
+					<Default>doWork</Default>
+				</Literal>
+				<Literal>
+					<ID>inputtype</ID>
+					<ToolTip>Replace with specified name</ToolTip>
+					<Default>MyInputType</Default>
+				</Literal>
+			</Declarations>
+			<Code Language="CSharp" kind="file"><![CDATA[FieldAsync<BooleanGraphType>(
+                    name: "$fieldName$",
+                    arguments: new QueryArguments(
+                        new QueryArgument<$inputtype$> { Name = InputArg }),
+                    resolve: async ctx =>
+                    {
+                        var input = ctx.GetArgument<$inputtype$>(InputArg);
+                        throw new NotImplementedException();
+                    });]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>
