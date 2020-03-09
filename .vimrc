@@ -150,7 +150,19 @@ function! s:align()
 endfunction
 
 let g:vimwiki_list = [
-  \ { 'auto_toc': 1, 'auto_tags': 1, 'auto_diary_index': 1, 'path': '~/vimwiki/','syntax': 'markdown', 'ext': '.md' }
+  \ { 'auto_toc': 1, 
+  \ 'auto_tags': 1, 
+  \ 'auto_diary_index': 1, 
+  \ 'path': '~/vimwiki/',
+  \ 'syntax': 'markdown', 
+  \ 'ext': '.md' },
+  \ { 'auto_toc': 1, 
+  \ 'auto_tags': 1, 
+  \ 'auto_diary_index': 1, 
+  \ 'path': '~/wiki',
+  \ 'index': 'README',
+  \ 'syntax': 'markdown', 
+  \ 'ext': '.md' }
   \ ]
 
 " allow <C-A> and <C-X> to increment letters

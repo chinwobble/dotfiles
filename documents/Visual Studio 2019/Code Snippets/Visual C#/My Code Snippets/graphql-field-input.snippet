@@ -40,7 +40,7 @@
 			<Code Language="CSharp" kind="file"><![CDATA[FieldAsync<BooleanGraphType>(
                     name: "$fieldName$",
                     arguments: new QueryArguments(
-                        new QueryArgument<$inputtype$> { Name = InputArg }),
+                        new QueryArgument<$inputtype$Type> { Name = InputArg }),
                     resolve: async ctx =>
                     {
                         var input = ctx.GetArgument<$inputtype$>(InputArg);
