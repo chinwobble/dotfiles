@@ -10,10 +10,15 @@ cd dotfiles
 ./windows.install.sh
 ```
 ## Install VS2019 code snippets
-```bash
-# cmd or powershell 
+```cmd
+" command prompt or powershell
 git clone git@github.com:chinwobble/dotfiles
-xcopy /S /Y "dotfiles\documents" "%OneDrive%\documents"
+
+" delete empty folder
+rd /S /Q %userprofile%\documents\Visual Studio 2019\Code Snippets
+
+" symlink repository to VS studio documents folder
+mklink /D "%userprofile%\Documents\Visual Studio 2019\Code Snippets" "%CD%\dotfiles\documents\Visual Studio 2019\Code Snippets"
 ```
 
 ## Installing new vim plugins
