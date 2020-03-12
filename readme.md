@@ -15,7 +15,7 @@ cd dotfiles
 git clone git@github.com:chinwobble/dotfiles
 
 " delete empty folder
-rd /S /Q %userprofile%\documents\Visual Studio 2019\Code Snippets
+rd /S /Q "%userprofile%\documents\Visual Studio 2019\Code Snippets"
 
 " symlink repository to VS studio documents folder
 mklink /D "%userprofile%\Documents\Visual Studio 2019\Code Snippets" "%CD%\dotfiles\documents\Visual Studio 2019\Code Snippets"
