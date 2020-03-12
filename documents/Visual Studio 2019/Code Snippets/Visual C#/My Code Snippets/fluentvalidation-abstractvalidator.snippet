@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>FluentValidation Abstract Validator</Title>
+			<Author>BA</Author>
+			<Description>Create an abstract validator</Description>
+			<Shortcut>fvav</Shortcut>
+		</Header>
+		<Snippet>
+			<Imports>
+				<Import>
+					<Namespace>System</Namespace>
+				</Import>
+				<Import>
+					<Namespace>System.Linq</Namespace>
+				</Import>
+				<Import>
+					<Namespace>FluentValidation</Namespace>
+				</Import>
+			</Imports>
+			<Declarations>
+				<Literal>
+					<ID>classname</ID>
+					<ToolTip>Replace with specified name</ToolTip>
+					<Default>MyClass</Default>
+				</Literal>
+			</Declarations>
+			<Code Language="CSharp" kind="file"><![CDATA[public class $classname$Validator : AbstractValidator<$classname$>
+{
+    public $classname$Validator()
+    {
+        $end$
+    }
+}]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>
