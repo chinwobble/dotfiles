@@ -1,7 +1,7 @@
 pushd %userprofile%
 
 del .bashrc
-mklink .bashrc dotfiles\.bashrc
+mklink .bashrc dotfiles\.bashrc.win
 
 del .inputrc
 mklink .inputrc dotfiles\.inputrc
