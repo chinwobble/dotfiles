@@ -1,0 +1,24 @@
+{
+	"React function component": {
+	  "prefix": "rfc",
+	  "body": [
+		"import * as React from 'react'",
+		"",
+		"interface Props {",
+		"  ${1:myProp}: string",
+		"}",
+		"",
+		"const ${TM_FILENAME_BASE} = ({${1:myProp}}: Props) => {",
+		"\treturn (",
+		"\t\t<div>",
+		"\t\t\t$0",
+		"\t\t</div>",
+		"\t)",
+		"}",
+		"",
+		"export default ${TM_FILENAME_BASE}",
+		""
+	  ],
+	  "description": "Creates a React Arrow Function Component with ES7 module system and TypeScript interface"
+	}
+  }
