@@ -72,7 +72,7 @@ augroup omnisharp_commands
     autocmd FileType cs nnoremap <buffer> <Leader>cc :OmniSharpGlobalCodeCheck<CR>
 augroup END
 autocmd FileType yml,json setlocal shiftwidth=2 sts=2 tabstop=2
-autocmd FileType vimwiki setlocal concealcursor=nvi
+autocmd FileType vimwiki setlocal concealcursor=nv
 autocmd FileType markdown setlocal shiftwidth=2 sts=2 tabstop=2
 
 " Contextual code actions (uses fzf, CtrlP or unite.vim when available)
