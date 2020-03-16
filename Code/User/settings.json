@@ -8,7 +8,6 @@
     "*.ctl": "vb"
   },
   "editor.fontWeight": "400",
-  "editor.formatOnSaveTimeout": 5000,
   "editor.cursorStyle": "line",
   "editor.cursorWidth": 5,
   "editor.cursorBlinking": "solid",
@@ -18,13 +17,12 @@
   // You'll need to change this to a file URI scheme on your computer: https://en.wikipedia.org/wiki/File_URI_scheme
   // Mac/Linux: file:///Users/YOUR-PC-USERNAME/.vscodestyles.css
   // Windows: file:///C:/Users/YOUR-PC-USERNAME/.vscodestyles.css
-  "vscode_custom_css.imports": ["file:///C:/Users/benne/AppData/Roaming/Code/User/.vscodestyles.css"],
+  "vscode_custom_css.imports": [
+    "file:///C:/Users/benne/AppData/Roaming/Code/User/.vscodestyles.css"
+  ],
   "vscode_custom_css.policy": true,
   "editor.renderWhitespace": "all",
   "window.zoomLevel": 0,
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -56,9 +54,6 @@
       "tab.unfocusedInactiveForeground": "#bbb"
     }
   },
-  "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
   "editor.minimap.enabled": false,
   "workbench.sideBar.location": "right",
   "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
@@ -66,6 +61,5 @@
   "diffEditor.renderSideBySide": false,
   "extensions.ignoreRecommendations": true,
   "go.formatTool": "goimports",
-  "go.useLanguageServer": true,
-  "importSorter.generalConfiguration.sortOnBeforeSave": true
+  "go.useLanguageServer": true
 }
