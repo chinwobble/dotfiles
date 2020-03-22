@@ -25,3 +25,8 @@ mklink /D "%userprofile%\Documents\Visual Studio 2019\Code Snippets" "%CD%\dotfi
 ```bash
 git submodule add xxxxx module
 ```
+
+## Update vim plugins
+```bash
+git submodule update --remote --merge
+```

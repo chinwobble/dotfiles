@@ -1,7 +1,7 @@
 alias gitpr='EDITOR="C:/Program Files/Git/usr/bin/vim" git push && hub pull-request'
 alias gitmfm='git pull && git merge origin/master'
 alias dotnetcb='git clean -fdx & git rm **/packages.lock.json & dotnet build'
-alias wiki='gvim ~/wiki/README.md'
+alias wiki='gvim ~/wiki/README.md &'
 GIT_PS1_SHOWDIRTYSTATE=1
 GIT_PS1_SHOWUNTRACKEDFILES=1
 GIT_PS1_SHOWSTASHSTATE=1
