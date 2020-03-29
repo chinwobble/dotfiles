@@ -167,3 +167,7 @@ let g:vimwiki_list = [
 
 " allow <C-A> and <C-X> to increment letters
 set nrformats+=alpha
+
+" configure folds and correct zo and zc behaviour
+autocmd Syntax c,csharp,cpp,vim,xml,html,json setlocal foldmethod=syntax
+autocmd Syntax c,csharp,cpp,vim,xml,html,json normal zR
