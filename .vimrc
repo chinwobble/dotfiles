@@ -171,6 +171,8 @@ set nrformats+=alpha
 " configure folds and correct zo and zc behaviour
 autocmd Syntax c,csharp,cpp,vim,xml,html,json setlocal foldmethod=syntax
 autocmd Syntax c,csharp,cpp,vim,xml,html,json normal zR
+autocmd Syntax yaml setlocal foldmethod=indent
+autocmd Syntax yaml normal zR
 
 " change fold text to display contents
 " https://dhruvasagar.com/2013/03/28/vim-better-foldtext
