@@ -29,3 +29,4 @@
 [submodule ".vim/pack/git/start/vimwiki"]
 	path = .vim/pack/git/start/vimwiki
 	url = git@github.com:vimwiki/vimwiki
+	branch = dev
