@@ -19,6 +19,7 @@ map <C-J> <C-W>j<C-W>_
 map <C-K> <C-W>k<C-W>_
 
 let g:ale_fixers = ['prettier', 'eslint']
+let g:ale_linters = {'cs': ['omnisharp']}
 let g:ale_fix_on_save = 1
 set incsearch
 let g:OmniSharp_server_stdio = 1
@@ -34,7 +35,6 @@ let g:OmniSharp_highlight_groups = {
     \ 'csUserType': ['class name', 'enum name', 'namespace name', 'struct name']
     \}
 
-let g:ale_linters = {'cs': ['omnisharp']}
 let g:OmniSharp_highlight_types = 3
 " exclude dotnet build artifacts
 let g:ctrlp_custom_ignore = 'bin\|obj\|git\|DS_Store\|node_modules' 
@@ -135,19 +135,6 @@ let g:airline_mode_map = {
       \ 'V'      : 'V',
       \ ''     : 'V',
       \ }
-
-autocmd FileType markdown inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
-
-function! s:align()
-  let p = '^\s*|\s.*\s|\s*$'
-  if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
-    let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
-    let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
-    Tabularize/|/l1
-    normal! 0
-    call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
-  endif
-endfunction
 
 let g:vimwiki_list = [
   \ { 'auto_toc': 1, 

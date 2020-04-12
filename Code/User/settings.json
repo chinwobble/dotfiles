@@ -61,5 +61,6 @@
   "diffEditor.renderSideBySide": false,
   "extensions.ignoreRecommendations": true,
   "go.formatTool": "goimports",
-  "go.useLanguageServer": true
+  "go.useLanguageServer": true,
+  "diffEditor.ignoreTrimWhitespace": false
 }
