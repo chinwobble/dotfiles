@@ -6,6 +6,7 @@ let &t_te.="\e[0 q"
 filetype indent plugin on
 set nocompatible
 syntax on
+set backspace=indent,eol,start
 set path+=**
 set wildmenu
 set ruler
