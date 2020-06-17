@@ -19,6 +19,13 @@ set winminheight=0
 map <C-J> <C-W>j<C-W>_
 map <C-K> <C-W>k<C-W>_
 
+" change to working directory to current file
+nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
+
+" Don't save backups in working directory
+set backupdir=~/.vim/tmp
+set directory=~/.vim/swp
+
 let g:ale_fixers = {
     \ 'javascript': ['prettier', 'eslint'],
     \ 'typescript': ['prettier', 'eslint'],
@@ -46,6 +53,7 @@ let g:ctrlp_custom_ignore = 'bin\|obj\|git\|DS_Store\|node_modules'
 
 autocmd GUIEnter * simalt ~x
 
+autocmd BufWinEnter * wincmd _ 
 augroup omnisharp_commands
     autocmd!
 
@@ -141,6 +149,7 @@ let g:airline_mode_map = {
       \ ''     : 'V',
       \ }
 
+let g:vimwiki_hl_cb_checked = 2
 let g:vimwiki_list = [
   \ { 'auto_toc': 1, 
   \ 'auto_tags': 1, 
@@ -217,3 +226,17 @@ function! MyFoldText()
   let sub = strpart( sub, 0, winwidth(0) - strlen( info ) - num_w - fold_w - 1 )
   return sub . info
 endfunction
+
+" fugitive
+cnoremap git Git
+map <leader>ga :Gwrite<CR>
+map <leader>gc :Gcommit<CR>
+map <leader>gp :Git push<CR>
+nmap <leader>gj :diffget //3<CR>
+nmap <leader>gf :diffget //2<CR>
+nmap <leader>gs :G<CR>
+
+let g:ctrlp_extensions = ['tag', 'buffertag', 'quickfix',
+                          \ 'undo', 'line', 'changes', 'mixed', 'bookmarkdir']
+
+

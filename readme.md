@@ -24,6 +24,9 @@ mklink /D "%userprofile%\Documents\Visual Studio 2019\Code Snippets" "%CD%\dotfi
 ## Installing new vim plugins
 ```bash
 git submodule add xxxxx module
+
+# in vim 
+:helptags ALL
 ```
 
 ## Update vim plugins
