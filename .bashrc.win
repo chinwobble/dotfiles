@@ -7,6 +7,12 @@ GIT_PS1_SHOWUNTRACKEDFILES=1
 GIT_PS1_SHOWSTASHSTATE=1
 GIT_PS1_SHOWUPSTREAM="auto verbose"
 
+# remove user@host from prompt
+PS1="${PS1/\\u\@\\h\ /}"
+
+# remove green ming64 from prompt
+PS1="${PS1/\$MSYSTEM\ /}"
+
 if [[ -f ~/.bashrc.local ]]; then
   source ~/.bashrc.local
 fi

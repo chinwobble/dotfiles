@@ -239,4 +239,6 @@ nmap <leader>gs :G<CR>
 let g:ctrlp_extensions = ['tag', 'buffertag', 'quickfix',
                           \ 'undo', 'line', 'changes', 'mixed', 'bookmarkdir']
 
-
+if filereadable($HOME . '/.vimrc.local')
+    source ~/.vimrc.local
+endif
