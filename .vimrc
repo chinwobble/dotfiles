@@ -59,7 +59,7 @@ let g:ctrlp_custom_ignore = 'bin\|obj\|git\|DS_Store\|node_modules'
 
 autocmd GUIEnter * simalt ~x
 
-autocmd BufWinEnter * wincmd _
+autocmd WinEnter * wincmd _
 augroup omnisharp_commands
     autocmd!
 "
@@ -272,8 +272,15 @@ if filereadable($HOME . '/.vimrc.local')
     source ~/.vimrc.local
 endif
 
+" autocmd BufEnter
 augroup dracula_customisation
   au!
   autocmd colorscheme dracula hi link CocErrorHighlight DraculaErrorLine
   autocmd colorscheme dracula hi link CocWarningHighlight DraculaWarnLine
+augroup END
+
+augroup quickfix
+    autocmd!
+    autocmd QuickFixCmdPost [^l]* nested cwindow
+    autocmd QuickFixCmdPost    l* nested lwindow
 augroup END
