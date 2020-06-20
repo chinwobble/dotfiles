@@ -62,5 +62,9 @@
   "extensions.ignoreRecommendations": true,
   "go.formatTool": "goimports",
   "go.useLanguageServer": true,
-  "diffEditor.ignoreTrimWhitespace": false
+  "diffEditor.ignoreTrimWhitespace": false,
+  "python.pythonPath": "C:\\tools\\miniconda3\\envs\\risbricks\\python.exe",
+  "python.venvFolders": [
+    "c:\\tools\\miniconda3\\envs\\risbricks\\lib\\site-packages\\pyspark/jars"
+  ]
 }

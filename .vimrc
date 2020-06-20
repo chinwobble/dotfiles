@@ -11,7 +11,9 @@ set path+=**
 set wildmenu
 set ruler
 set number
-set shiftwidth=4
+set expandtab
+set sts=2
+set shiftwidth=2
 set clipboard=unnamed
 
 " navigate vim windows
@@ -26,12 +28,16 @@ nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
 set backupdir=~/.vim/tmp
 set directory=~/.vim/swp
 
+let g:ale_sign_column_always = 1
 let g:ale_fixers = {
-    \ 'javascript': ['prettier', 'eslint'],
-    \ 'typescript': ['prettier', 'eslint'],
-    \ 'yaml': ['prettier'],
-    \ }
-let g:ale_linters = {'cs': ['omnisharp']}
+  \ '*': ['remove_trailing_lines', 'trim_whitespace'],
+  \ 'javascript': ['prettier', 'eslint'],
+  \ 'typescript': ['prettier', 'eslint'],
+  \ 'yaml': ['prettier'],
+  \ }
+let g:ale_linters = {
+  \ 'cs': ['omnisharp'],
+  \ 'python': ['pylint']}
 let g:ale_fix_on_save = 1
 set incsearch
 let g:OmniSharp_server_stdio = 1
@@ -49,41 +55,54 @@ let g:OmniSharp_highlight_groups = {
 
 let g:OmniSharp_highlight_types = 3
 " exclude dotnet build artifacts
-let g:ctrlp_custom_ignore = 'bin\|obj\|git\|DS_Store\|node_modules' 
+let g:ctrlp_custom_ignore = 'bin\|obj\|git\|DS_Store\|node_modules'
 
 autocmd GUIEnter * simalt ~x
 
-autocmd BufWinEnter * wincmd _ 
+autocmd BufWinEnter * wincmd _
 augroup omnisharp_commands
     autocmd!
-
-    " Show type information automatically when the cursor stops moving.
-    " Note that the type is echoed to the Vim command line, and will overwrite
-    " any other messages in this space including e.g. ALE linting messages.
-    autocmd CursorHold *.cs OmniSharpTypeLookup
-
-    autocmd FileType cs nnoremap <buffer> gd :OmniSharpGotoDefinition<CR>
-    autocmd FileType cs nnoremap <buffer> <Leader>fi :OmniSharpFindImplementations<CR>
-    autocmd FileType cs nnoremap <buffer> <Leader>fs :OmniSharpFindSymbol<CR>
-    autocmd FileType cs nnoremap <buffer> <Leader>fu :OmniSharpFindUsages<CR>
-
-    " The following commands are contextual, based on the cursor position.
-    " Finds members in the current buffer
-    autocmd FileType cs nnoremap <buffer> <Leader>fm :OmniSharpFindMembers<CR>
-
-    autocmd FileType cs nnoremap <buffer> <Leader>fx :OmniSharpFixUsings<CR>
-    autocmd FileType cs nnoremap <buffer> <Leader>tt :OmniSharpTypeLookup<CR>
-    autocmd FileType cs nnoremap <buffer> <Leader>dc :OmniSharpDocumentation<CR>
-    autocmd FileType cs nnoremap <buffer> <C-\> :OmniSharpSignatureHelp<CR>
-    autocmd FileType cs inoremap <buffer> <C-\> <C-o>:OmniSharpSignatureHelp<CR>
-
-    " Navigate up and down by method/property/field
-    autocmd FileType cs nnoremap <buffer> <C-k> :OmniSharpNavigateUp<CR>
-    autocmd FileType cs nnoremap <buffer> <C-j> :OmniSharpNavigateDown<CR>
-
-    " Find all code errors/warnings for the current solution and populate the quickfix window
-    autocmd FileType cs nnoremap <buffer> <Leader>cc :OmniSharpGlobalCodeCheck<CR>
+"
+"     " Show type information automatically when the cursor stops moving.
+"     " Note that the type is echoed to the Vim command line, and will overwrite
+"     " any other messages in this space including e.g. ALE linting messages.
+     autocmd CursorHold *.cs :OmniSharpTypeLookup
+"
+"     autocmd FileType cs nnoremap <buffer> gd :OmniSharpGotoDefinition<CR>
+"     autocmd FileType cs nnoremap <buffer> <Leader>fi :OmniSharpFindImplementations<CR>
+"     autocmd FileType cs nnoremap <buffer> <Leader>fs :OmniSharpFindSymbol<CR>
+"     autocmd FileType cs nnoremap <buffer> <Leader>fu :OmniSharpFindUsages<CR>
+"
+"     " The following commands are contextual, based on the cursor position.
+"     " Finds members in the current buffer
+"     autocmd FileType cs nnoremap <buffer> <Leader>fm :OmniSharpFindMembers<CR>
+"
+"     autocmd FileType cs nnoremap <buffer> <Leader>fx :OmniSharpFixUsings<CR>
+"     autocmd FileType cs nnoremap <buffer> <Leader>tt :OmniSharpTypeLookup<CR>
+"     autocmd FileType cs nnoremap <buffer> <Leader>dc :OmniSharpDocumentation<CR>
+"     autocmd FileType cs nnoremap <buffer> <C-\> :OmniSharpSignatureHelp<CR>
+"     autocmd FileType cs inoremap <buffer> <C-\> <C-o>:OmniSharpSignatureHelp<CR>
+"
+"     " Navigate up and down by method/property/field
+"     autocmd FileType cs nnoremap <buffer> <C-k> :OmniSharpNavigateUp<CR>
+"     autocmd FileType cs nnoremap <buffer> <C-j> :OmniSharpNavigateDown<CR>
+"
+"     " Find all code errors/warnings for the current solution and populate the quickfix window
+"     autocmd FileType cs nnoremap <buffer> <Leader>cc :OmniSharpGlobalCodeCheck<CR>
 augroup END
+
+" GoTo code navigation.
+nmap <leader>gd <Plug>(coc-definition)
+nmap <leader>gy <Plug>(coc-type-definition)
+nmap <leader>gi <Plug>(coc-implementation)
+nmap <leader>gr <Plug>(coc-references)
+nmap <leader>rr <Plug>(coc-rename)
+nmap <leader>g[ <Plug>(coc-diagnostic-prev)
+nmap <leader>g] <Plug>(coc-diagnostic-next)
+nmap <silent> <leader>gp <Plug>(coc-diagnostic-prev-error)
+nmap <silent> <leader>gn <Plug>(coc-diagnostic-next-error)
+nnoremap <leader>cr :CocRestart
+
 autocmd FileType yml,json setlocal shiftwidth=2 sts=2 tabstop=2
 autocmd FileType vimwiki setlocal concealcursor=nv
 autocmd FileType markdown setlocal shiftwidth=2 sts=2 tabstop=2
@@ -127,6 +146,9 @@ nnoremap <Leader>ev :e ~/.vimrc<CR>
 nnoremap <silent> <leader>q :quitall<CR>
 
 " airline
+" shorten the display
+
+let g:airline_theme='dracula'
 let g:airline_section_z = "%p%%%4l:%3v"
 let g:airline_mode_map = {
       \ '__'     : '-',
@@ -149,20 +171,25 @@ let g:airline_mode_map = {
       \ ''     : 'V',
       \ }
 
+let airline#extensions#coc#error_symbol = ''
+let airline#extensions#coc#warning_symbol = ''
+let airline#extensions#ale#error_symbol = ''
+let airline#extensions#ale#warning_symbol = ''
+
 let g:vimwiki_hl_cb_checked = 2
 let g:vimwiki_list = [
-  \ { 'auto_toc': 1, 
-  \ 'auto_tags': 1, 
-  \ 'auto_diary_index': 1, 
+  \ { 'auto_toc': 1,
+  \ 'auto_tags': 1,
+  \ 'auto_diary_index': 1,
   \ 'path': '~/vimwiki/',
-  \ 'syntax': 'markdown', 
+  \ 'syntax': 'markdown',
   \ 'ext': '.md' },
-  \ { 'auto_toc': 1, 
-  \ 'auto_tags': 1, 
-  \ 'auto_diary_index': 1, 
+  \ { 'auto_toc': 1,
+  \ 'auto_tags': 1,
+  \ 'auto_diary_index': 1,
   \ 'path': '~/wiki',
   \ 'index': 'README',
-  \ 'syntax': 'markdown', 
+  \ 'syntax': 'markdown',
   \ 'ext': '.md' }
   \ ]
 
@@ -239,6 +266,14 @@ nmap <leader>gs :G<CR>
 let g:ctrlp_extensions = ['tag', 'buffertag', 'quickfix',
                           \ 'undo', 'line', 'changes', 'mixed', 'bookmarkdir']
 
+let g:vimspector_enable_mappings = 'HUMAN'
+
 if filereadable($HOME . '/.vimrc.local')
     source ~/.vimrc.local
 endif
+
+augroup dracula_customisation
+  au!
+  autocmd colorscheme dracula hi link CocErrorHighlight DraculaErrorLine
+  autocmd colorscheme dracula hi link CocWarningHighlight DraculaWarnLine
+augroup END

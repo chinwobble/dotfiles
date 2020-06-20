@@ -12,6 +12,11 @@ PS1="${PS1/\\u\@\\h\ /}"
 
 # remove green ming64 from prompt
 PS1="${PS1/\$MSYSTEM\ /}"
+# add conda env
+PS1="${PS1/\\n\$/\\n\(\$(basename \"\$CONDA_PREFIX)\"\) \$}"
+
+# load miniconda
+. C:/tools/miniconda3/etc/profile.d/conda.sh
 
 if [[ -f ~/.bashrc.local ]]; then
   source ~/.bashrc.local
