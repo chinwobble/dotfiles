@@ -30,3 +30,6 @@
 	path = .vim/pack/git/start/vimwiki
 	url = git@github.com:vimwiki/vimwiki
 	branch = dev
+[submodule ".vim/pack/git/start/quickpeek.vim"]
+	path = .vim/pack/git/start/quickpeek.vim
+	url = git@github.com:AndrewRadev/quickpeek.vim.git

@@ -284,3 +284,5 @@ augroup quickfix
     autocmd QuickFixCmdPost [^l]* nested cwindow
     autocmd QuickFixCmdPost    l* nested lwindow
 augroup END
+
+let g:quickpeek_auto = v:true
