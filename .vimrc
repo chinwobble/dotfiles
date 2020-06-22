@@ -18,8 +18,8 @@ set clipboard=unnamed
 
 " navigate vim windows
 set winminheight=0
-map <C-J> <C-W>j<C-W>_
-map <C-K> <C-W>k<C-W>_
+map <C-J> <C-W>j
+map <C-K> <C-W>k
 
 " change to working directory to current file
 nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
@@ -59,7 +59,7 @@ let g:ctrlp_custom_ignore = 'bin\|obj\|git\|DS_Store\|node_modules'
 
 autocmd GUIEnter * simalt ~x
 
-autocmd WinEnter * wincmd _
+autocmd WinEnter * if &buftype == 'quickfix' | wincmd J | resize 9 | else | wincmd _ | endif
 augroup omnisharp_commands
     autocmd!
 "
@@ -140,7 +140,7 @@ inoremap <A-j> <Esc>:m .+1<CR>==gi
 vnoremap <A-k> :m '<-2<CR>gv=gv
 
 " open vimrc
-nnoremap <Leader>ev :e ~/.vimrc<CR>
+nnoremap <Leader>ev :e ~/dotfiles/.vimrc<CR>
 
 " close both files for a diff
 nnoremap <silent> <leader>q :quitall<CR>

@@ -10,6 +10,7 @@ mklink .gvimrc dotfiles\.gvimrc
 del .vimrc
 mklink .vimrc dotfiles\.vimrc
 
+mklink %cd%\vimfiles\after %cd%\dotfiles\.vim\after /D
 mklink %cd%\vimfiles\pack\git %cd%\dotfiles\.vim\pack\git /D
 
 del %appdata%\Code\User\settings.json

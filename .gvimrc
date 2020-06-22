@@ -1,5 +1,5 @@
-set guifont=Consolas:h28:cANSI:qDRAFT
-
+set guifont=Consolas\ NF:h28:cANSI:qDRAFT
+set encoding=utf8
 colorscheme dracula
 set guioptions=egmrLt "egmt"
 

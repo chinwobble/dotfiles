@@ -33,3 +33,6 @@
 [submodule ".vim/pack/git/start/quickpeek.vim"]
 	path = .vim/pack/git/start/quickpeek.vim
 	url = git@github.com:AndrewRadev/quickpeek.vim.git
+[submodule ".vim/pack/git/start/vim-surround"]
+	path = .vim/pack/git/start/vim-surround
+	url = git@github.com:tpope/vim-surround.git
