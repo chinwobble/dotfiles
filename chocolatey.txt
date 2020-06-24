@@ -11,8 +11,8 @@ cinst r.studio -y
 cinst r.project -y
 cinst yarn -y
 cinst nodejs-lts -y
-cinst hub -y
 cinst adobereader -y
+cinst gh -y
 cinst perfview -y
 cinst superbenchmarker -y
 cinst servicebusexplorer -y

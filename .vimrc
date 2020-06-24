@@ -6,6 +6,7 @@ let &t_te.="\e[0 q"
 filetype indent plugin on
 set nocompatible
 syntax on
+set ignorecase
 set backspace=indent,eol,start
 set path+=**
 set wildmenu
@@ -29,6 +30,10 @@ set backupdir=~/.vim/tmp
 set directory=~/.vim/swp
 
 let g:ale_sign_column_always = 1
+" let g:ale_sign_error = '>'
+" let g:ale_sign_warning = '-'
+" let g:ale_sign_info = '-'
+
 let g:ale_fixers = {
   \ '*': ['remove_trailing_lines', 'trim_whitespace'],
   \ 'javascript': ['prettier', 'eslint'],
@@ -171,11 +176,14 @@ let g:airline_mode_map = {
       \ ''     : 'V',
       \ }
 
+let airline#extensions#coc#stl_format_err = '%E'
+let airline#extensions#coc#stl_format_warn = '%W'
 let airline#extensions#coc#error_symbol = ''
 let airline#extensions#coc#warning_symbol = ''
 let airline#extensions#ale#error_symbol = ''
 let airline#extensions#ale#warning_symbol = ''
-
+let g:airline#parts#ffenc#skip_expected_string='utf-8[dos]'
+let airline#extensions#ale#show_line_numbers = 0
 let g:vimwiki_hl_cb_checked = 2
 let g:vimwiki_list = [
   \ { 'auto_toc': 1,
