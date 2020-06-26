@@ -184,6 +184,7 @@ let airline#extensions#ale#error_symbol = ''
 let airline#extensions#ale#warning_symbol = ''
 let g:airline#parts#ffenc#skip_expected_string='utf-8[dos]'
 let airline#extensions#ale#show_line_numbers = 0
+
 let g:vimwiki_hl_cb_checked = 2
 let g:vimwiki_list = [
   \ { 'auto_toc': 1,
