@@ -39,3 +39,6 @@
 [submodule ".vim/pack/git/start/polyglot"]
 	path = .vim/pack/git/start/polyglot
 	url = git@github.com:sheerun/vim-polyglot.git
+[submodule ".vim/pack/git/start/rooter"]
+	path = .vim/pack/git/start/rooter
+	url = git@github.com:airblade/vim-rooter.git

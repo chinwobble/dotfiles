@@ -16,12 +16,17 @@ set expandtab
 set sts=2
 set shiftwidth=2
 set clipboard=unnamed
-
+set encoding=utf8
+set incsearch
+" allow <C-A> and <C-X> to increment letters
+set nrformats+=alpha
 " navigate vim windows
 set winminheight=0
 map <C-J> <C-W>j
 map <C-K> <C-W>k
 
+" Map Ctrl-Backspace to delete the previous word in insert mode.
+inoremap <C-BS> <C-\><C-o>db
 " change to working directory to current file
 nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
 
@@ -29,6 +34,28 @@ nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
 set backupdir=~/.vim/tmp
 set directory=~/.vim/swp
 
+" ctrl-s to save
+nmap <C-s> :w<CR>
+imap <C-s> <esc>:w<CR>
+
+" hotkeys to move lines up and down
+vnoremap <A-j> :m '>+1<CR>gv=gv
+inoremap <A-k> <Esc>:m .-2<CR>==gi
+nnoremap <A-j> :m .+1<CR>==
+nnoremap <A-k> :m .-2<CR>==
+inoremap <A-j> <Esc>:m .+1<CR>==gi
+vnoremap <A-k> :m '<-2<CR>gv=gv
+
+" open vimrc
+nnoremap <Leader>ev :e ~/dotfiles/.vimrc<CR>
+
+" close both files for a diff
+nnoremap <silent> <leader>q :quitall<CR>
+
+" rooter {{{1
+let g:rooter_silent_chdir = 1
+
+" ale config {{{1
 let g:ale_sign_column_always = 1
 " let g:ale_sign_error = '>'
 " let g:ale_sign_warning = '-'
@@ -44,9 +71,11 @@ let g:ale_linters = {
   \ 'cs': ['omnisharp'],
   \ 'python': ['pylint']}
 let g:ale_fix_on_save = 1
-set incsearch
-let g:OmniSharp_server_stdio = 1
+
 set completeopt=longest,menuone,preview
+
+" omnisharp {{{1
+let g:OmniSharp_server_stdio = 1
 let g:omnicomplete_fetch_full_documentation = 1
 let g:OmniSharp_highlight_types = 3
 let g:OmniSharp_highlight_groups = {
@@ -59,12 +88,6 @@ let g:OmniSharp_highlight_groups = {
     \}
 
 let g:OmniSharp_highlight_types = 3
-" exclude dotnet build artifacts
-let g:ctrlp_custom_ignore = 'bin\|obj\|git\|DS_Store\|node_modules'
-
-autocmd GUIEnter * simalt ~x
-
-autocmd WinEnter * if &buftype == 'quickfix' | wincmd J | resize 9 | else | wincmd _ | endif
 augroup omnisharp_commands
     autocmd!
 "
@@ -96,7 +119,20 @@ augroup omnisharp_commands
 "     autocmd FileType cs nnoremap <buffer> <Leader>cc :OmniSharpGlobalCodeCheck<CR>
 augroup END
 
-" GoTo code navigation.
+" Contextual code actions (uses fzf, CtrlP or unite.vim when available)
+nnoremap <Leader><Space> :OmniSharpGetCodeActions<CR>
+" Run code actions with text selected in visual mode to extract method
+xnoremap <Leader><Space> :call OmniSharp#GetCodeActions('visual')<CR>
+nnoremap <Leader>cf :OmniSharpCodeFormat<CR>
+
+" Start the omnisharp server for the current solution
+nnoremap <Leader>ss :OmniSharpStartServer<CR>
+nnoremap <Leader>sp :OmniSharpStopServer<CR>
+
+" Enable snippet completion
+" let g:OmniSharp_want_snippet=1
+
+" coc config {{{1
 nmap <leader>gd <Plug>(coc-definition)
 nmap <leader>gy <Plug>(coc-type-definition)
 nmap <leader>gi <Plug>(coc-implementation)
@@ -112,46 +148,19 @@ autocmd FileType yml,json setlocal shiftwidth=2 sts=2 tabstop=2
 autocmd FileType vimwiki setlocal concealcursor=nv
 autocmd FileType markdown setlocal shiftwidth=2 sts=2 tabstop=2
 
-" Contextual code actions (uses fzf, CtrlP or unite.vim when available)
-nnoremap <Leader><Space> :OmniSharpGetCodeActions<CR>
-" Run code actions with text selected in visual mode to extract method
-xnoremap <Leader><Space> :call OmniSharp#GetCodeActions('visual')<CR>
-
 " Rename with dialog
 nnoremap <Leader>nm :OmniSharpRename<CR>
 nnoremap <F2> :OmniSharpRename<CR>
 " Rename without dialog - with cursor on the symbol to rename: `:Rename newname`
 command! -nargs=1 Rename :call OmniSharp#RenameTo("<args>")
 
-nnoremap <Leader>cf :OmniSharpCodeFormat<CR>
-
-" Start the omnisharp server for the current solution
-nnoremap <Leader>ss :OmniSharpStartServer<CR>
-nnoremap <Leader>sp :OmniSharpStopServer<CR>
-
-" ctrl-s to save
-nmap <C-s> <esc>:w<CR>
-imap <C-s> <esc>:w<CR>
-
-" Enable snippet completion
-" let g:OmniSharp_want_snippet=1
-
-" hotkeys to move lines up and down
-vnoremap <A-j> :m '>+1<CR>gv=gv
-inoremap <A-k> <Esc>:m .-2<CR>==gi
-nnoremap <A-j> :m .+1<CR>==
-nnoremap <A-k> :m .-2<CR>==
-inoremap <A-j> <Esc>:m .+1<CR>==gi
-vnoremap <A-k> :m '<-2<CR>gv=gv
-
-" open vimrc
-nnoremap <Leader>ev :e ~/dotfiles/.vimrc<CR>
-
-" close both files for a diff
-nnoremap <silent> <leader>q :quitall<CR>
-
-" airline
+" airline {{{1
 " shorten the display
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+  let g:airline_symbols.branch = ''
+  let g:airline_symbols.linenr = ''
+endif
 
 let g:airline_theme='dracula'
 let g:airline_section_z = "%p%%%4l:%3v"
@@ -185,6 +194,12 @@ let airline#extensions#ale#warning_symbol = ''
 let g:airline#parts#ffenc#skip_expected_string='utf-8[dos]'
 let airline#extensions#ale#show_line_numbers = 0
 
+" vimwiki {{{1
+let g:vimwiki_key_mappings =
+    \ {
+    \ 'headers': 0,
+    \ }
+
 let g:vimwiki_hl_cb_checked = 2
 let g:vimwiki_list = [
   \ { 'auto_toc': 1,
@@ -202,12 +217,12 @@ let g:vimwiki_list = [
   \ 'ext': '.md' }
   \ ]
 
-" allow <C-A> and <C-X> to increment letters
-set nrformats+=alpha
 
-" configure folds and correct zo and zc behaviour
-autocmd Syntax c,csharp,cpp,vim,xml,html,json setlocal foldmethod=syntax
-autocmd Syntax c,csharp,cpp,vim,xml,html,json normal zR
+" configure folds and correct zo and zc behaviour {{{1
+autocmd Syntax c,csharp,cpp,xml,html,json setlocal foldmethod=syntax
+autocmd Syntax vim setlocal foldmethod=marker
+autocmd Syntax vim setlocal foldlevel=0
+autocmd Syntax c,csharp,cpp,xml,html,json normal zR
 autocmd Syntax yaml setlocal foldmethod=indent
 autocmd Syntax yaml normal zR
 
@@ -216,7 +231,7 @@ autocmd Syntax yaml normal zR
 function! NeatFoldText()
   let line = ' ' . substitute(getline(v:foldstart), '^\\s*\"\\?\\s*\\|\\s*\"\\?\\s*{{' . '{\\d*\\s*', '', 'g') . ' '
   let lines_count = v:foldend - v:foldstart + 1
-  let lines_count_text = '| ' . printf(\"%10s\", lines_count . ' lines') . ' |'
+  let lines_count_text = '| ' . printf("%10s\", lines_count . ' lines') . ' |'
   let foldchar = matchstr(&amp;fillchars, 'fold:\\zs.')
   let foldtextstart = strpart('+' . repeat(foldchar, v:foldlevel*2) . line, 0, (winwidth(0)*2)/3)
   let foldtextend = lines_count_text . repeat(foldchar, 8)
@@ -227,6 +242,7 @@ endfunction
 " when folded, show the first comment or first line of the fold
 " https://vim.fandom.com/wiki/Customize_text_for_closed_folds
 set foldtext=MyFoldText()
+
 function! MyFoldText()
   let line = getline(v:foldstart)
   if match( line, '^[ \t]*\(\/\*\|\/\/\)[*/\\]*[ \t]*$' ) == 0
@@ -259,11 +275,11 @@ function! MyFoldText()
   let sub = sub . "                                                                                                                  "
   let num_w = getwinvar( 0, '&number' ) * getwinvar( 0, '&numberwidth' )
   let fold_w = getwinvar( 0, '&foldcolumn' )
-  let sub = strpart( sub, 0, winwidth(0) - strlen( info ) - num_w - fold_w - 1 )
+  let sub = strpart(sub, 0, winwidth(0) - strlen( info ) - num_w - fold_w - 1 )
   return sub . info
 endfunction
 
-" fugitive
+" fugitive {{{1
 cnoremap git Git
 map <leader>ga :Gwrite<CR>
 map <leader>gc :Gcommit<CR>
@@ -272,26 +288,32 @@ nmap <leader>gj :diffget //3<CR>
 nmap <leader>gf :diffget //2<CR>
 nmap <leader>gs :G<CR>
 
-let g:ctrlp_extensions = ['tag', 'buffertag', 'quickfix',
-                          \ 'undo', 'line', 'changes', 'mixed', 'bookmarkdir']
-
-let g:vimspector_enable_mappings = 'HUMAN'
-
 if filereadable($HOME . '/.vimrc.local')
     source ~/.vimrc.local
 endif
+" ctrlp {{{1
+let g:ctrlp_extensions = ['tag', 'buffertag', 'quickfix',
+                          \ 'undo', 'line', 'changes', 'mixed', 'bookmarkdir']
 
-" autocmd BufEnter
+" exclude dotnet build artifacts
+let g:ctrlp_custom_ignore = 'bin\|obj\|git\|DS_Store\|node_modules'
+
+" dracula {{{1
+let g:dracula_italic = 0
 augroup dracula_customisation
   au!
+  autocmd ColorScheme dracula let g:dracula#palette.comment = ['#5272a3',  61]
   autocmd colorscheme dracula hi link CocErrorHighlight DraculaErrorLine
   autocmd colorscheme dracula hi link CocWarningHighlight DraculaWarnLine
 augroup END
 
+" quickfix {{{1
 augroup quickfix
-    autocmd!
-    autocmd QuickFixCmdPost [^l]* nested cwindow
-    autocmd QuickFixCmdPost    l* nested lwindow
+  autocmd!
+  autocmd QuickFixCmdPost [^l]* nested cwindow
+  autocmd QuickFixCmdPost    l* nested lwindow
 augroup END
+" open new windows except quickfix maximised
+autocmd WinEnter * if &buftype == 'quickfix' | wincmd J | resize 9 |else | wincmd _ | endif
 
 let g:quickpeek_auto = v:true
