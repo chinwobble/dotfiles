@@ -57,9 +57,9 @@ let g:rooter_silent_chdir = 1
 
 " ale config {{{1
 let g:ale_sign_column_always = 1
-" let g:ale_sign_error = '>'
-" let g:ale_sign_warning = '-'
-" let g:ale_sign_info = '-'
+let g:ale_sign_error = '>'
+let g:ale_sign_warning = '-'
+let g:ale_sign_info = '-'
 
 let g:ale_fixers = {
   \ '*': ['remove_trailing_lines', 'trim_whitespace'],
@@ -142,7 +142,7 @@ nmap <leader>g[ <Plug>(coc-diagnostic-prev)
 nmap <leader>g] <Plug>(coc-diagnostic-next)
 nmap <silent> <leader>gp <Plug>(coc-diagnostic-prev-error)
 nmap <silent> <leader>gn <Plug>(coc-diagnostic-next-error)
-nnoremap <leader>cr :CocRestart
+nnoremap <leader>cr :CocRestart<cr>
 
 autocmd FileType yml,json setlocal shiftwidth=2 sts=2 tabstop=2
 autocmd FileType vimwiki setlocal concealcursor=nv

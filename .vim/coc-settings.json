@@ -1,9 +1,8 @@
 {
     "coc.preferences.hoverTarget": "preview",
+    "python.jediEnabled": false,
     "signature.target": "echo",
     "suggest.detailField": "preview",
-    "suggest.enablePreview": "true",
-    "suggest.localityBonus": "true"
+    "suggest.enablePreview": true,
+    "suggest.localityBonus": true
 }
-
-
