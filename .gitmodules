@@ -42,3 +42,6 @@
 [submodule ".vim/pack/git/start/rooter"]
 	path = .vim/pack/git/start/rooter
 	url = git@github.com:airblade/vim-rooter.git
+[submodule ".vim/pack/git/start/editorconfig"]
+	path = .vim/pack/git/start/editorconfig
+	url = git@github.com:editorconfig/editorconfig-vim.git

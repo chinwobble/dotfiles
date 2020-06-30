@@ -69,7 +69,7 @@ let g:ale_fixers = {
   \ }
 let g:ale_linters = {
   \ 'cs': ['omnisharp'],
-  \ 'python': ['pylint']}
+  \}
 let g:ale_fix_on_save = 1
 
 set completeopt=longest,menuone,preview
@@ -231,7 +231,7 @@ autocmd Syntax yaml normal zR
 function! NeatFoldText()
   let line = ' ' . substitute(getline(v:foldstart), '^\\s*\"\\?\\s*\\|\\s*\"\\?\\s*{{' . '{\\d*\\s*', '', 'g') . ' '
   let lines_count = v:foldend - v:foldstart + 1
-  let lines_count_text = '| ' . printf("%10s\", lines_count . ' lines') . ' |'
+  let lines_count_text = '| ' . printf("%10s\", lines_count . '
   let foldchar = matchstr(&amp;fillchars, 'fold:\\zs.')
   let foldtextstart = strpart('+' . repeat(foldchar, v:foldlevel*2) . line, 0, (winwidth(0)*2)/3)
   let foldtextend = lines_count_text . repeat(foldchar, 8)
@@ -302,7 +302,9 @@ let g:ctrlp_custom_ignore = 'bin\|obj\|git\|DS_Store\|node_modules'
 let g:dracula_italic = 0
 augroup dracula_customisation
   au!
-  autocmd ColorScheme dracula let g:dracula#palette.comment = ['#5272a3',  61]
+  autocmd colorscheme dracula hi link AleWarning DraculaWarnLine
+  autocmd colorscheme dracula hi link AleWarningSign DraculaOrangeInverse
+  autocmd Colorscheme dracula let g:dracula#palette.comment = ['#5272a3',  61]
   autocmd colorscheme dracula hi link CocErrorHighlight DraculaErrorLine
   autocmd colorscheme dracula hi link CocWarningHighlight DraculaWarnLine
 augroup END
