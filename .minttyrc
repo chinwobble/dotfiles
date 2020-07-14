@@ -1,0 +1,5 @@
+
+ThemeFile=dracula
+FontHeight=24
+Font=Consolas NF
+Term=xterm-256color

@@ -9,6 +9,8 @@ del .gvimrc
 mklink .gvimrc dotfiles\.gvimrc
 del .vimrc
 mklink .vimrc dotfiles\.vimrc
+del .minttyrc
+mklink .minttyrc dotfiles\.minttyrc
 
 mklink %cd%\vimfiles %cd%\dotfiles\.vim /D
 
