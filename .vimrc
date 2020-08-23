@@ -71,6 +71,8 @@ let g:ale_linters = {
   \ 'cs': ['omnisharp'],
   \}
 let g:ale_fix_on_save = 1
+let g:ale_pattern_options = {
+        \ '.*\.md$': {'ale_enabled': 0}}
 
 set completeopt=longest,menuone,preview
 

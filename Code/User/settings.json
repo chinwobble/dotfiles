@@ -11,7 +11,6 @@
   "editor.cursorStyle": "line",
   "editor.cursorWidth": 5,
   "editor.cursorBlinking": "solid",
-  "editor.formatOnSave": true,
   "prettier.tabWidth": 2,
   // Very important: Install this plugin: https://github.com/be5invis/vscode-custom-css
   // You'll need to change this to a file URI scheme on your computer: https://en.wikipedia.org/wiki/File_URI_scheme
@@ -66,5 +65,9 @@
   "python.pythonPath": "C:\\tools\\miniconda3\\envs\\risbricks\\python.exe",
   "python.venvFolders": [
     "c:\\tools\\miniconda3\\envs\\risbricks\\lib\\site-packages\\pyspark/jars"
-  ]
+  ],
+  "search.exclude": {
+    "**/bench.esy.lock": true,
+    "**/esy.lock": true
+  }
 }
