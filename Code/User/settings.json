@@ -69,5 +69,8 @@
   "search.exclude": {
     "**/bench.esy.lock": true,
     "**/esy.lock": true
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   }
 }

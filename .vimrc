@@ -186,7 +186,6 @@ let g:airline_mode_map = {
       \ 'V'      : 'V',
       \ ''     : 'V',
       \ }
-
 let airline#extensions#coc#stl_format_err = '%E'
 let airline#extensions#coc#stl_format_warn = '%W'
 let airline#extensions#coc#error_symbol = ''
@@ -194,6 +193,10 @@ let airline#extensions#coc#warning_symbol = ''
 let airline#extensions#ale#error_symbol = ''
 let airline#extensions#ale#warning_symbol = ''
 let g:airline#parts#ffenc#skip_expected_string='utf-8[dos]'
+
+" added to improve startup time
+" https://github.com/neoclide/coc.nvim/issues/1827
+let g:airline#extensions#hunks#enabled = 0
 let airline#extensions#ale#show_line_numbers = 0
 
 " vimwiki {{{1
@@ -298,7 +301,7 @@ let g:ctrlp_extensions = ['tag', 'buffertag', 'quickfix',
                           \ 'undo', 'line', 'changes', 'mixed', 'bookmarkdir']
 
 " exclude dotnet build artifacts
-let g:ctrlp_custom_ignore = 'bin\|obj\|git\|DS_Store\|node_modules'
+let g:ctrlp_custom_ignore = 'bin\|obj\|git\|DS_Store\|node_modules\|_build\|esy.lock\|_esy'
 
 " dracula {{{1
 let g:dracula_italic = 0
