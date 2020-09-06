@@ -1,4 +1,5 @@
 cinst firanf -y
+cinst licecap -y
 cinst git -y
 cinst f.lux -y
 cinst 7zip -y
