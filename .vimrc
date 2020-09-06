@@ -155,7 +155,19 @@ nnoremap <Leader>nm :OmniSharpRename<CR>
 nnoremap <F2> :OmniSharpRename<CR>
 " Rename without dialog - with cursor on the symbol to rename: `:Rename newname`
 command! -nargs=1 Rename :call OmniSharp#RenameTo("<args>")
+imap <C-j> <Plug>(coc-snippets-expand-jump)
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
 
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+let g:coc_snippet_next = '<tab>'
 " airline {{{1
 " shorten the display
 if !exists('g:airline_symbols')
@@ -203,6 +215,7 @@ let airline#extensions#ale#show_line_numbers = 0
 let g:vimwiki_key_mappings =
     \ {
     \ 'headers': 0,
+    \ 'table_mappings': 0,
     \ }
 
 let g:vimwiki_hl_cb_checked = 2

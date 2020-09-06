@@ -45,3 +45,9 @@
 [submodule ".vim/pack/git/start/editorconfig"]
 	path = .vim/pack/git/start/editorconfig
 	url = git@github.com:editorconfig/editorconfig-vim.git
+[submodule ".vim/pack/git/start/ultisnips"]
+	path = .vim/pack/git/start/ultisnips
+	url = git@github.com:SirVer/ultisnips.git
+[submodule ".vim/pack/git/start/vim-snippets"]
+	path = .vim/pack/git/start/vim-snippets
+	url = git@github.com:honza/vim-snippets.git
