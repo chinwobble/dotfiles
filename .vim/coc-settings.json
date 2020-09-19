@@ -3,12 +3,13 @@
     "coc.preferences.hoverTarget": "preview",
     "python.jediEnabled": true,
     "diagnostic.displayByAle": true,
+    "diagnostic.enableSign": false,
     "signature.target": "echo",
     "suggest.detailField": "preview",
     "suggest.enablePreview": true,
     "suggest.localityBonus": true,
     "python.autoComplete.extraPaths": [
-      "${env:SPARK_HOME}\\python",
-      "${env:SPARK_HOME}\\python\\pyspark"
+        "${env:SPARK_HOME}\\python",
+        "${env:SPARK_HOME}\\python\\pyspark"
     ]
 }

@@ -10,6 +10,7 @@ set ignorecase
 set backspace=indent,eol,start
 set path+=**
 set wildmenu
+set wildignore+=*/node_modules/*,_site,*/__pycache__/,*/venv/*,*/target/*,*/.vim$,\~$,*/.log,*/.aux,*/.cls,*/.aux,*/.bbl,*/.blg,*/.fls,*/.fdb*/,*/.toc,*/.out,*/.glo,*/.log,*/.ist,*/.fdb_latexmk
 set ruler
 set number
 set expandtab
@@ -52,6 +53,8 @@ nnoremap <Leader>ev :e ~/dotfiles/.vimrc<CR>
 " close both files for a diff
 nnoremap <silent> <leader>q :quitall<CR>
 
+" indentline {{{1 "
+let g:indentLine_showFirstIndentLevel = 1
 " rooter {{{1
 let g:rooter_silent_chdir = 1
 

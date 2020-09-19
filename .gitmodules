@@ -51,3 +51,9 @@
 [submodule ".vim/pack/git/start/vim-snippets"]
 	path = .vim/pack/git/start/vim-snippets
 	url = git@github.com:honza/vim-snippets.git
+[submodule ".vim/pack/git/start/identline"]
+	path = .vim/pack/git/start/identline
+	url = git@github.com:Yggdroot/indentLine.git
+[submodule ".vim/pack/git/start/vim-vinegar"]
+	path = .vim/pack/git/start/vim-vinegar
+	url = git@github.com:tpope/vim-vinegar.git

@@ -1,5 +1,5 @@
 
-ThemeFile=dracula
+ThemeFile=flat-ui
 FontHeight=28
 Font=Consolas NF
 Term=xterm-256color
