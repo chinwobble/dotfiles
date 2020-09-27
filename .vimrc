@@ -10,7 +10,9 @@ set ignorecase
 set backspace=indent,eol,start
 set path+=**
 set wildmenu
-set wildignore+=*/node_modules/*,_site,*/__pycache__/,*/venv/*,*/target/*,*/.vim$,\~$,*/.log,*/.aux,*/.cls,*/.aux,*/.bbl,*/.blg,*/.fls,*/.fdb*/,*/.toc,*/.out,*/.glo,*/.log,*/.ist,*/.fdb_latexmk
+set wildignore+=*/node_modules/*
+set wildignore+=_site,*/__pycache__/,*/venv/*,*/target/*,*/.vim$,\~$,*/.log,*/.aux,*/.cls,*/.aux,*/.bbl,*/.blg,*/.fls,*/.fdb*/,*/.toc,*/.out,*/.glo,*/.log,*/.ist,*/.fdb_latexmk
+set wildignore+=*/bin/*,*/obj/*
 set ruler
 set number
 set expandtab
@@ -55,8 +57,12 @@ nnoremap <silent> <leader>q :quitall<CR>
 
 " indentline {{{1 "
 let g:indentLine_showFirstIndentLevel = 1
+let g:indentLine_setConceal = 0
+set conceallevel=2
+set concealcursor=inc
 " rooter {{{1
 let g:rooter_silent_chdir = 1
+
 
 " ale config {{{1
 let g:ale_sign_column_always = 1
@@ -340,3 +346,8 @@ augroup END
 autocmd WinEnter * if &buftype == 'quickfix' | wincmd J | resize 9 |else | wincmd _ | endif
 
 let g:quickpeek_auto = v:true
+" use a slightly darker background, like GitHub inline code blocks
+let g:github_colors_soft = 1
+
+colorscheme github
+set background=dark
