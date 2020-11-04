@@ -307,7 +307,7 @@ function! MyFoldText()
 endfunction
 
 " fugitive {{{1
-cnoremap git Git
+" cnoremap git Git
 map <leader>ga :Gwrite<CR>
 map <leader>gc :Gcommit<CR>
 map <leader>gp :Git push<CR>
