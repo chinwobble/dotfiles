@@ -51,7 +51,7 @@ function! s:ExportDatabricksNotebook()
 
     call job_start("cmd /c "
         \. "call C:\\tools\\miniconda3\\condabin\\conda_hook.bat "
-        \. "&& conda activate risbricks "
+        \. "&& conda activate " . projectname . " "
         \. "&& databricks workspace export "
         \. " -o"
         \.  " /Users/benney.au@prospa.com/" . FugitiveHead()
