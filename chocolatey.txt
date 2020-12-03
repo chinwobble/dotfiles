@@ -18,3 +18,4 @@ cinst perfview -y
 cinst superbenchmarker -y
 cinst servicebusexplorer -y
 cinst seq -y
+cinst vimgrep -y
