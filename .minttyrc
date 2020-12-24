@@ -1,5 +1,6 @@
 
-ThemeFile=flat-ui
+ThemeFile=gruvbox
 FontHeight=28
 Font=Consolas NF
 Term=xterm-256color
+CursorType=block
