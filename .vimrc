@@ -185,7 +185,7 @@ if !exists('g:airline_symbols')
   let g:airline_symbols.linenr = ''
 endif
 
-let g:airline_theme='dracula'
+let g:airline_theme='base16_gruvbox_dark_hard'
 let g:airline_section_z = "%p%%%4l:%3v"
 let g:airline_mode_map = {
       \ '__'     : '-',
@@ -357,5 +357,5 @@ let g:quickpeek_auto = v:true
 " use a slightly darker background, like GitHub inline code blocks
 let g:github_colors_soft = 1
 
-colorscheme github
+colorscheme gruvbox
 set background=dark

@@ -60,3 +60,9 @@
 [submodule ".vim/pack/git/start/ripgrep"]
 	path = .vim/pack/git/start/ripgrep
 	url = git@github.com:jremmen/vim-ripgrep.git
+[submodule ".vim/pack/git/start/gruvbox"]
+	path = .vim/pack/git/start/gruvbox
+	url = git@github.com:morhetz/gruvbox.git
+[submodule ".vim/pack/git/start/airline-themes"]
+	path = .vim/pack/git/start/airline-themes
+	url = git@github.com:vim-airline/vim-airline-themes.git
