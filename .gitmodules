@@ -54,9 +54,6 @@
 [submodule ".vim/pack/git/start/vim-vinegar"]
 	path = .vim/pack/git/start/vim-vinegar
 	url = git@github.com:tpope/vim-vinegar.git
-[submodule ".vim/pack/git/start/vim-colors-github"]
-	path = .vim/pack/git/start/vim-colors-github
-	url = git@github.com:cormacrelf/vim-colors-github.git
 [submodule ".vim/pack/git/start/ripgrep"]
 	path = .vim/pack/git/start/ripgrep
 	url = git@github.com:jremmen/vim-ripgrep.git
