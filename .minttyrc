@@ -4,3 +4,6 @@ FontHeight=28
 Font=Consolas NF
 Term=xterm-256color
 CursorType=block
+SwitchShortcuts=yes
+CopyAsRTF=no
+AllowSetSelection=yes

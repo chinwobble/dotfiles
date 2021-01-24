@@ -56,7 +56,7 @@
   "editor.minimap.enabled": false,
   "workbench.sideBar.location": "right",
   "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
-  "workbench.colorTheme": "Cobalt2",
+  "workbench.colorTheme": "Gruvbox Dark Hard",
   "diffEditor.renderSideBySide": false,
   "extensions.ignoreRecommendations": true,
   "go.formatTool": "goimports",
@@ -78,5 +78,13 @@
   },
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "workbench.editorAssociations": [],
+  "java.configuration.checkProjectSettingsExclusions": false,
+  "files.watcherExclude": {
+    "**/.bloop": true,
+    "**/.metals": true,
+    "**/.ammonite": true
+  },
+  "editor.accessibilitySupport": "off"
 }

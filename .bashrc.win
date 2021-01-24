@@ -16,7 +16,13 @@ PS1="${PS1/\$MSYSTEM\ /}"
 PS1="${PS1/\\n\$/\\n\(\$(basename \"\$CONDA_PREFIX)\"\) \$}"
 
 # load miniconda
-. C:/tools/miniconda3/etc/profile.d/conda.sh
+if [[ -f ~/miniconda3/etc/profile.d/conda.sh ]]; then
+  . ~/miniconda3/etc/profile.d/conda.sh
+fi
+
+if [[ -f C:/tools/miniconda3/etc/profile.d/conda.sh ]]; then
+  . C:/tools/miniconda3/etc/profile.d/conda.sh
+fi
 
 if [[ -f ~/.bashrc.local ]]; then
   source ~/.bashrc.local
