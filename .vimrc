@@ -1,11 +1,11 @@
-" needed to get cursor block in mingw64
-let &t_ti.="\e[1 q"
+" needed to get cursor block in mingw64 let &t_ti.="\e[1 q"
 let &t_SI.="\e[5 q"
 let &t_EI.="\e[1 q"
 let &t_te.="\e[0 q"
 filetype indent plugin on
 set nocompatible
 syntax on
+set signcolumn=yes " always show sign column so it doesn't shifting the text
 set ignorecase
 set backspace=indent,eol,start
 set path+=**
@@ -65,6 +65,7 @@ let g:rooter_silent_chdir = 1
 
 
 " ale config {{{1
+let g:ale_disable_lsp = 1
 let g:ale_sign_column_always = 1
 let g:ale_sign_error = '>'
 let g:ale_sign_warning = '-'
@@ -81,6 +82,7 @@ let g:ale_linters = {
   \}
 let g:ale_fix_on_save = 1
 let g:ale_pattern_options = {
+        \ '.*\.py$': {'ale_enabled': 0},
         \ '.*\.md$': {'ale_enabled': 0}}
 
 set completeopt=longest,menuone,preview
@@ -144,6 +146,40 @@ nnoremap <Leader>sp :OmniSharpStopServer<CR>
 " let g:OmniSharp_want_snippet=1
 
 " coc config {{{1
+
+let g:coc_global_extensions = [
+      \ 'coc-snippets',
+      \ 'coc-vimlsp',
+      \ 'coc-pyright'
+      \ ]
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" scroll float
+nnoremap <nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+nnoremap <nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+inoremap <nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+inoremap <nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+
+" register new text objects
+xmap if <Plug>(coc-funcobj-i)
+xmap af <Plug>(coc-funcobj-a)
+omap if <Plug>(coc-funcobj-i)
+omap af <Plug>(coc-funcobj-a)
+
 nmap <leader>gd <Plug>(coc-definition)
 nmap <leader>gy <Plug>(coc-type-definition)
 nmap <leader>gi <Plug>(coc-implementation)
@@ -176,7 +212,24 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-let g:coc_snippet_next = '<tab>'
+" let g:coc_snippet_next = '<tab>'
+
+" Snippets
+" Use <C-l> for trigger snippet expand.
+imap <C-l> <Plug>(coc-snippets-expand)
+
+" Use <C-j> for select text for visual placeholder of snippet.
+vmap <C-j> <Plug>(coc-snippets-select)
+
+" Use <C-j> for jump to next placeholder, it's default of coc.nvim
+let g:coc_snippet_next = '<c-j>'
+
+" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
+let g:coc_snippet_prev = '<c-k>'
+
+" Use <C-j> for both expand and jump (make expand higher priority.)
+imap <C-j> <Plug>(coc-snippets-expand-jump)
+
 " airline {{{1
 " shorten the display
 if !exists('g:airline_symbols')

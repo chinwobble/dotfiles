@@ -1,12 +1,19 @@
 {
+    "suggest.echodocSupport": true,
     "coc.preferences.formatOnSaveFiletypes": ["python"],
     "coc.preferences.hoverTarget": "preview",
-    "diagnostic.displayByAle": true,
+    "diagnostic.enable": true,
+    "diagnostic.errorSign": "",
+    "diagnostic.warningSign": "",
+    "diagnostic.infoSign": "",
+    "diagnostic.hintSign": " ",
+    "diagnostic.displayByAle": false,
     "diagnostic.enableSign": true,
     "signature.target": "echo",
     "suggest.detailField": "preview",
     "suggest.enablePreview": true,
     "suggest.localityBonus": true,
+    "python.formatting.provider": "black",
     "python.analysis.extraPaths": [
         "${env:SPARK_HOME}\\python",
         "${env:SPARK_HOME}\\python\\pyspark"
