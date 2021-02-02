@@ -1,2 +1,4 @@
 .ionide
 *.swp
+*.swo
+.vim/.netrwhist
