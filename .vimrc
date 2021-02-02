@@ -412,3 +412,10 @@ let g:github_colors_soft = 1
 
 colorscheme gruvbox
 set background=dark
+
+" rooter {{{1
+" add extra root markers to support mono repos..
+" Many apps exit in the same mono repo and you don't want to keep changing to
+" the root
+let g:rooter_patterns = ['requirements.txt', 'Pipfile', '.git', 'Makefile']
+let g:ctrlp_root_markers = ['requirements.txt', 'Pipfile']
