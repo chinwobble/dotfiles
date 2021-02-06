@@ -1,5 +1,25 @@
 call plug#begin('~/.vim/plugged')
 Plug 'rafcamlet/coc-nvim-lua'
+Plug 'dense-analysis/ale'
+Plug 'omnisharp/omnisharp-vim'
+Plug 'terryma/vim-expand-region'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-vinegar'
+Plug 'jremmen/vim-ripgrep'
+Plug 'morhetz/gruvbox'
+Plug 'sheerun/vim-polyglot'
+Plug 'airblade/vim-rooter'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'honza/vim-snippets'
+Plug 'Yggdroot/indentLine'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'ctrlpvim/ctrlp.vim'
+" Plug 'godlygeek/tabular'
+Plug 'vimwiki/vimwiki', {'branch': 'dev'}
+Plug 'AndrewRadev/quickpeek.vim'
 Plug 'n0v1c3/vira', { 'do': './install.sh', 'branch': 'dev' }
 call plug#end()
 

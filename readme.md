@@ -21,15 +21,7 @@ rd /S /Q "%userprofile%\documents\Visual Studio 2019\Code Snippets"
 mklink /D "%userprofile%\Documents\Visual Studio 2019\Code Snippets" "%CD%\dotfiles\documents\Visual Studio 2019\Code Snippets"
 ```
 
-## Installing new vim plugins
+inside vim run the following command
 ```bash
-git submodule add [repo] .vim/pack/git/start/[package]
-
-# in vim
-:helptags ALL
-```
-
-## Update vim plugins
-```bash
-git submodule update --remote --merge
+:PlugUpgrade
 ```
