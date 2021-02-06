@@ -2,3 +2,4 @@
 *.swp
 *.swo
 .vim/.netrwhist
+.vim/plugged
