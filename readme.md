@@ -25,3 +25,13 @@ inside vim run the following command
 ```bash
 :PlugUpgrade
 ```
+
+### export linux packages on debian
+```sh
+dpkg --get-selections | grep -v deinstall | awk '{print S1}' > package.lst
+```
+
+### import linux packages
+```sh
+sudo apt install package.lst
+```
