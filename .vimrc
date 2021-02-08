@@ -36,6 +36,8 @@ set backspace=indent,eol,start
 set path+=**
 set wildmenu
 set wildignore+=*/node_modules/*
+set wildignore+=batect
+set wildignore+=batect.cmd
 set wildignore+=_site,*/__pycache__/,*/venv/*,*/target/*,*/.vim$,\~$,*/.log,*/.aux,*/.cls,*/.aux,*/.bbl,*/.blg,*/.fls,*/.fdb*/,*/.toc,*/.out,*/.glo,*/.log,*/.ist,*/.fdb_latexmk
 set wildignore+=*/bin/*,*/obj/*
 set ruler
