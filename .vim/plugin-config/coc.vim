@@ -1,5 +1,3 @@
-" coc config {{{1
-
 let g:coc_global_extensions = [
       \ 'coc-snippets',
       \ 'coc-vimlsp',
@@ -19,7 +17,7 @@ function! s:show_documentation()
     execute '!' . &keywordprg . " " . expand('<cword>')
   endif
 endfunction
-autocmd CursorHold * silent call CocActionAsync('highlight')
+" autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " scroll float
 nnoremap <nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"

@@ -9,7 +9,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-vinegar'
 Plug 'jremmen/vim-ripgrep'
-Plug 'morhetz/gruvbox'
+Plug 'gruvbox-community/gruvbox'
 Plug 'sheerun/vim-polyglot'
 Plug 'airblade/vim-rooter'
 Plug 'editorconfig/editorconfig-vim'
@@ -27,6 +27,9 @@ call plug#end()
 let &t_SI.="\e[5 q"
 let &t_EI.="\e[1 q"
 let &t_te.="\e[0 q"
+
+let &t_Cs = "\e[4:3m"
+let &t_Ce = "\e[4:0m"
 filetype indent plugin on
 set nocompatible
 syntax on
@@ -84,6 +87,7 @@ nnoremap <silent> <leader>q :quitall<CR>
 
 source $HOME/.vim/plugin-config/coc.vim
 source $HOME/.vim/plugin-config/vira.vim
+source $HOME/.vim/plugin-config/gruvbox.vim
 " WSL yank support
 
 let s:clip = "/mnt/c/Windows/System32/clip.exe"
