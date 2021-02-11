@@ -119,3 +119,5 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+export PIPENV_VENV_IN_PROJECT=1

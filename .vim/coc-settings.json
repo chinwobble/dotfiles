@@ -14,6 +14,7 @@
     "suggest.enablePreview": true,
     "suggest.localityBonus": true,
     "python.formatting.provider": "black",
+    "python.linting.pylintEnabled": true,
     "python.analysis.extraPaths": [
         "${env:SPARK_HOME}\\python",
         "${env:SPARK_HOME}\\python\\pyspark"
