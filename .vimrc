@@ -224,7 +224,11 @@ let airline#extensions#coc#error_symbol = ''
 let airline#extensions#coc#warning_symbol = ''
 let airline#extensions#ale#error_symbol = ''
 let airline#extensions#ale#warning_symbol = ''
-let g:airline#parts#ffenc#skip_expected_string='utf-8[dos]'
+if has('unix')
+  let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
+else
+  let g:airline#parts#ffenc#skip_expected_string='utf-8[dos]'
+endif
 
 " added to improve startup time
 " https://github.com/neoclide/coc.nvim/issues/1827
