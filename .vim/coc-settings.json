@@ -2,6 +2,7 @@
     "suggest.echodocSupport": true,
     "coc.preferences.formatOnSaveFiletypes": ["python"],
     "coc.preferences.hoverTarget": "preview",
+    "coc.preferences.currentFunctionSymbolAutoUpdate": true,
     "diagnostic.enable": true,
     "diagnostic.errorSign": "",
     "diagnostic.warningSign": "",

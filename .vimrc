@@ -3,8 +3,8 @@ Plug 'rafcamlet/coc-nvim-lua'
 Plug 'dense-analysis/ale'
 Plug 'omnisharp/omnisharp-vim'
 Plug 'terryma/vim-expand-region'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-vinegar'
@@ -16,7 +16,6 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'honza/vim-snippets'
 Plug 'Yggdroot/indentLine'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'ctrlpvim/ctrlp.vim'
 " Plug 'godlygeek/tabular'
 Plug 'vimwiki/vimwiki', {'branch': 'dev'}
 Plug 'AndrewRadev/quickpeek.vim'
@@ -53,6 +52,7 @@ set encoding=utf8
 set incsearch
 " allow <C-A> and <C-X> to increment letters
 set nrformats+=alpha
+set cursorline " highlight the current line
 " navigate vim windows
 set winminheight=0
 map <C-J> <C-W>j
@@ -87,8 +87,10 @@ nnoremap <silent> <leader>q :quitall<CR>
 
 source $HOME/.vim/plugin-config/coc.vim
 source $HOME/.vim/plugin-config/vira.vim
-source $HOME/.vim/plugin-config/gruvbox.vim
 source $HOME/.vim/plugin-config/vimwiki.vim
+source $HOME/.vim/plugin-config/airline.vim
+source $HOME/.vim/plugin-config/gruvbox.vim
+
 " WSL yank support
 let s:clip = "/mnt/c/Windows/System32/clip.exe"
 if executable(s:clip)
@@ -187,55 +189,6 @@ nnoremap <Leader>sp :OmniSharpStopServer<CR>
 
 " Enable snippet completion
 " let g:OmniSharp_want_snippet=1
-
-" airline {{{1
-" shorten the display
-if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
-  let g:airline_symbols.branch = ''
-  let g:airline_symbols.linenr = ''
-endif
-
-let g:airline_theme='base16_gruvbox_dark_hard'
-let g:airline_section_z = "%p%%%4l:%3v"
-let g:airline_mode_map = {
-      \ '__'     : '-',
-      \ 'c'      : 'C',
-      \ 'i'      : 'I',
-      \ 'ic'     : 'I',
-      \ 'ix'     : 'I',
-      \ 'n'      : 'N',
-      \ 'multi'  : 'M',
-      \ 'ni'     : 'N',
-      \ 'no'     : 'N',
-      \ 'R'      : 'R',
-      \ 'Rv'     : 'R',
-      \ 's'      : 'S',
-      \ 'S'      : 'S',
-      \ ''     : 'S',
-      \ 't'      : 'T',
-      \ 'v'      : 'V',
-      \ 'V'      : 'V',
-      \ ''     : 'V',
-      \ }
-let airline#extensions#coc#stl_format_err = '%E'
-let airline#extensions#coc#stl_format_warn = '%W'
-let airline#extensions#coc#error_symbol = ''
-let airline#extensions#coc#warning_symbol = ''
-let airline#extensions#ale#error_symbol = ''
-let airline#extensions#ale#warning_symbol = ''
-let airline#extensions#whitespace#show_message = 0
-
-if has('unix')
-  let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
-else
-  let g:airline#parts#ffenc#skip_expected_string='utf-8[dos]'
-endif
-
-" added to improve startup time
-" https://github.com/neoclide/coc.nvim/issues/1827
-let g:airline#extensions#hunks#enabled = 0
-let airline#extensions#ale#show_line_numbers = 0
 
 
 " configure folds and correct zo and zc behaviour {{{1
@@ -347,6 +300,10 @@ augroup END
 autocmd WinEnter * if &buftype == 'quickfix' | wincmd J | resize 9 |else | wincmd _ | endif
 
 let g:quickpeek_auto = v:true
+let g:quickpeek_popup_options = {
+      \ 'maxheight': 8
+      \ }
+" let g:quickpeek_popup_options = {'pos': 'topleft'}
 
 set background=dark
 
