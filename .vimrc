@@ -108,7 +108,6 @@ set concealcursor=inc
 " rooter {{{1
 let g:rooter_silent_chdir = 1
 
-
 " ale config {{{1
 let g:ale_disable_lsp = 1
 let g:ale_sign_column_always = 1
@@ -317,7 +316,7 @@ let g:ctrlp_root_markers = ['requirements.txt', 'Pipfile']
 
 " make alt hotkeys work in certain terminals
 " https://stackoverflow.com/questions/6778961/alt-key-shortcuts-not-working-on-gnome-terminal-with-vim
-if has('unix')
+if has('unix') && !has('nvim')
   let c='a'
   while c <= 'z'
     exec "set <A-".c.">=\e".c
