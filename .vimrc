@@ -22,7 +22,7 @@ Plug 'vimwiki/vimwiki', {'branch': 'dev'}
 Plug 'AndrewRadev/quickpeek.vim'
 Plug 'n0v1c3/vira', { 'do': './install.sh', 'branch': 'dev' }
 call plug#end()
-
+packadd! matchit
 " needed to get cursor block in mingw64 let &t_ti.="\e[1 q"
 let &t_SI.="\e[5 q"
 let &t_EI.="\e[1 q"
@@ -88,8 +88,8 @@ nnoremap <silent> <leader>q :quitall<CR>
 source $HOME/.vim/plugin-config/coc.vim
 source $HOME/.vim/plugin-config/vira.vim
 source $HOME/.vim/plugin-config/gruvbox.vim
+source $HOME/.vim/plugin-config/vimwiki.vim
 " WSL yank support
-
 let s:clip = "/mnt/c/Windows/System32/clip.exe"
 if executable(s:clip)
   noremap "+p :exe 'norm a'.system('/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -Command Get-Clipboard')<CR>
@@ -224,6 +224,8 @@ let airline#extensions#coc#error_symbol = ''
 let airline#extensions#coc#warning_symbol = ''
 let airline#extensions#ale#error_symbol = ''
 let airline#extensions#ale#warning_symbol = ''
+let airline#extensions#whitespace#show_message = 0
+
 if has('unix')
   let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
 else
@@ -234,30 +236,6 @@ endif
 " https://github.com/neoclide/coc.nvim/issues/1827
 let g:airline#extensions#hunks#enabled = 0
 let airline#extensions#ale#show_line_numbers = 0
-
-" vimwiki {{{1
-let g:vimwiki_key_mappings =
-    \ {
-    \ 'headers': 0,
-    \ 'table_mappings': 0,
-    \ }
-
-let g:vimwiki_hl_cb_checked = 2
-let g:vimwiki_list = [
-  \ { 'auto_toc': 1,
-  \ 'auto_tags': 1,
-  \ 'auto_diary_index': 1,
-  \ 'path': '~/vimwiki/',
-  \ 'syntax': 'markdown',
-  \ 'ext': '.md' },
-  \ { 'auto_toc': 1,
-  \ 'auto_tags': 1,
-  \ 'auto_diary_index': 1,
-  \ 'path': '~/wiki',
-  \ 'index': 'README',
-  \ 'syntax': 'markdown',
-  \ 'ext': '.md' }
-  \ ]
 
 
 " configure folds and correct zo and zc behaviour {{{1
@@ -351,7 +329,7 @@ let g:ctrlp_custom_ignore = 'bin\|obj\|git\|DS_Store\|node_modules\|_build\|esy.
 " dracula {{{1
 let g:dracula_italic = 0
 augroup dracula_customisation
-  au!
+  autocmd!
   autocmd colorscheme dracula hi link AleWarning DraculaWarnLine
   autocmd colorscheme dracula hi link AleWarningSign DraculaOrangeInverse
   autocmd Colorscheme dracula let g:dracula#palette.comment = ['#5272a3',  61]
@@ -369,10 +347,7 @@ augroup END
 autocmd WinEnter * if &buftype == 'quickfix' | wincmd J | resize 9 |else | wincmd _ | endif
 
 let g:quickpeek_auto = v:true
-" use a slightly darker background, like GitHub inline code blocks
-let g:github_colors_soft = 1
 
-colorscheme gruvbox
 set background=dark
 
 " rooter {{{1
@@ -381,3 +356,16 @@ set background=dark
 " the root
 let g:rooter_patterns = ['requirements.txt', 'Pipfile', '.git', 'Makefile']
 let g:ctrlp_root_markers = ['requirements.txt', 'Pipfile']
+
+
+" make alt hotkeys work in certain terminals
+" https://stackoverflow.com/questions/6778961/alt-key-shortcuts-not-working-on-gnome-terminal-with-vim
+if has('unix')
+  let c='a'
+  while c <= 'z'
+    exec "set <A-".c.">=\e".c
+    exec "imap \e".c." <A-".c.">"
+    let c = nr2char(1+char2nr(c))
+  endw
+  set timeout ttimeoutlen=50
+endif
