@@ -20,6 +20,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vimwiki/vimwiki', {'branch': 'dev'}
 Plug 'AndrewRadev/quickpeek.vim'
 Plug 'n0v1c3/vira', { 'do': './install.sh', 'branch': 'dev' }
+Plug 'puremourning/vimspector'
 call plug#end()
 packadd! matchit
 " needed to get cursor block in mingw64 let &t_ti.="\e[1 q"
@@ -296,7 +297,8 @@ augroup quickfix
   autocmd QuickFixCmdPost    l* nested lwindow
 augroup END
 " open new windows except quickfix maximised
-autocmd WinEnter * if &buftype == 'quickfix' | wincmd J | resize 9 |else | wincmd _ | endif
+
+autocmd WinEnter * if &buftype == 'quickfix' | wincmd J | resize 9 | elseif &filetype != 'VimspectorPrompt'| wincmd _ | else | wincmd = | endif
 
 let g:quickpeek_auto = v:true
 let g:quickpeek_popup_options = {
@@ -325,3 +327,42 @@ if has('unix') && !has('nvim')
   endw
   set timeout ttimeoutlen=50
 endif
+
+let g:vimspector_enable_mappings = 'HUMAN'
+let g:vimspector_install_gadgets = [ 'debugpy' ]
+
+
+" functions to scroll through documentation
+" press K to show documentation. Works when you using popup for coc
+set belloff+=esc
+nnoremap <expr> <c-d> <SID>scroll_cursor_popup(1) ? '<esc>' : '<c-d>'
+nnoremap <expr> <c-u> <SID>scroll_cursor_popup(0) ? '<esc>' : '<c-u>'
+
+function s:find_cursor_popup(...)
+  let radius = get(a:000, 0, 2)
+  let srow = screenrow()
+  let scol = screencol()
+
+  " it's necessary to test entire rect, as some popup might be quite small
+  for r in range(srow - radius, srow + radius)
+    for c in range(scol - radius, scol + radius)
+      let winid = popup_locate(r, c)
+      if winid != 0
+        return winid
+      endif
+    endfor
+  endfor
+
+  return 0
+endfunction
+
+function s:scroll_cursor_popup(down)
+  let winid = s:find_cursor_popup()
+  if winid == 0
+    return 0
+  endif
+
+  let pp = popup_getpos(winid)
+  call popup_setoptions(winid, {'firstline' : pp.firstline + (a:down ? 5 : -5) })
+  return 1
+endfunction

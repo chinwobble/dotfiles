@@ -3,6 +3,7 @@
     "coc.preferences.formatOnSaveFiletypes": ["python"],
     "coc.preferences.hoverTarget": "preview",
     "coc.preferences.currentFunctionSymbolAutoUpdate": true,
+    "coc.preferences.hoverTarget": "float",
     "diagnostic.enable": true,
     "diagnostic.errorSign": "",
     "diagnostic.warningSign": "",
