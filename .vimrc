@@ -56,6 +56,7 @@ set nrformats+=alpha
 set cursorline " highlight the current line
 " navigate vim windows
 set winminheight=0
+set nu rnu
 map <C-J> <C-W>j
 map <C-K> <C-W>k
 
