@@ -21,6 +21,7 @@ Plug 'vimwiki/vimwiki', {'branch': 'dev'}
 Plug 'AndrewRadev/quickpeek.vim'
 Plug 'n0v1c3/vira', { 'do': './install.sh', 'branch': 'dev' }
 Plug 'puremourning/vimspector'
+Plug 'Raimondi/delimitMate'
 call plug#end()
 packadd! matchit
 " needed to get cursor block in mingw64 let &t_ti.="\e[1 q"
@@ -44,7 +45,6 @@ set wildignore+=batect.cmd
 set wildignore+=_site,*/__pycache__/,*/venv/*,*/target/*,*/.vim$,\~$,*/.log,*/.aux,*/.cls,*/.aux,*/.bbl,*/.blg,*/.fls,*/.fdb*/,*/.toc,*/.out,*/.glo,*/.log,*/.ist,*/.fdb_latexmk
 set wildignore+=*/bin/*,*/obj/*
 set ruler
-set number
 set expandtab
 set sts=2
 set shiftwidth=2
@@ -56,7 +56,7 @@ set nrformats+=alpha
 set cursorline " highlight the current line
 " navigate vim windows
 set winminheight=0
-set nu rnu
+set number relativenumber
 map <C-J> <C-W>j
 map <C-K> <C-W>k
 
