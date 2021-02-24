@@ -23,3 +23,31 @@ let g:vimwiki_list = [
   \ 'syntax': 'markdown',
   \ 'ext': '.md' }
   \ ]
+
+function! s:InsideWSL()
+  let uname = substitute(system('uname'),'\n','','')
+  if uname == 'Linux'
+    if system('$PATH')=~ '/mnt/c/'
+      " We are in Windows Subsystem
+      return 1
+    endif
+  endif
+  return 0
+endfunction
+
+function! VimwikiLinkHandler(link)
+  try
+    if has('unix') && s:InsideWSL()
+      let browser = '/mnt/c/Program Files/Mozilla Firefox/firefox.exe'
+      echo browser
+      execute '! "'.browser.'" ' . a:link
+      return 1
+    endif
+    let browser = 'C:\Program Files\Firefox\firefox.exe'
+    execute '!start "'.browser.'" ' . a:link
+    return 1
+  catch
+    echo "This can happen for a variety of reasons ..."
+  endtry
+  return 0
+endfunction
