@@ -27,3 +27,4 @@
 	pf = push --force-with-lease
 	st = status
 	l = log --graph --date=short --pretty=format:'%C(yellow bold)%h%Creset%C(auto)%d%Creset - %s %C(green bold)[%an]%Creset %C(blue bold)(%ad, %cr)%Creset'
+	se = !git rev-list --all | xargs git grep -F
