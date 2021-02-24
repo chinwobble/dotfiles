@@ -16,7 +16,8 @@
 
 [core]
 	editor = vim
-
+[include]
+	path = ~/.gitconfig.local
 [alias]
 	aa = add --all
 	ap = add --patch
