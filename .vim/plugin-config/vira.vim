@@ -14,3 +14,4 @@ function! Enter_ViraActiveIssue()
   ViraReport
 endfunction
 nnoremap <silent> <leader>vei :call Enter_ViraActiveIssue()<cr>
+let g:vira_report_width = 'H'

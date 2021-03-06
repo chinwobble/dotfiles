@@ -33,6 +33,7 @@ let &t_Cs = "\e[4:3m"
 let &t_Ce = "\e[4:0m"
 filetype indent plugin on
 set nocompatible
+set hidden " keep abandoned buffers open
 syntax on
 set signcolumn=yes " always show sign column so it doesn't shifting the text
 set ignorecase
