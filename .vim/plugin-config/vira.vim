@@ -1,7 +1,7 @@
-augroup vira_customizations
-  autocmd!
-  autocmd WinEnter,BufEnter vira_report silent! wincmd J | wincmd _
-augroup END
+" augroup vira_customizations
+"   autocmd!
+"   autocmd WinEnter,BufEnter vira_report silent! wincmd J | wincmd _
+" augroup END
 
 nnoremap <silent> <leader>ve :ViraEpics<cr>
 nnoremap <silent> <leader>vi :ViraIssues<cr>
