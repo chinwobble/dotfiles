@@ -35,3 +35,15 @@ dpkg --get-selections | grep -v deinstall | awk '{print S1}' > package.lst
 ```sh
 sudo apt install package.lst
 ```
+
+
+### Set up conda env on ubuntu
+```sh
+source ~/miniconda3/etc/profile.d/conda.sh
+
+conda create --name myrepo python=3.7
+conda activate myrepo
+pip install databricks-cli
+conda env config vars set DATABRICKS_HOST=https://australiaeast.azuredatabricks.net
+conda env config vars set DATABRICKS_TOKEN=xxxxxx
+```
