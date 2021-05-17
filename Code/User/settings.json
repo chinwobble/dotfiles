@@ -39,7 +39,12 @@
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "workbench.editorAssociations": [],
+  "workbench.editorAssociations": [
+    {
+      "viewType": "jupyter.notebook.ipynb",
+      "filenamePattern": "*.ipynb"
+    }
+  ],
   "files.watcherExclude": {
     "**/.bloop": true,
     "**/.metals": true,
