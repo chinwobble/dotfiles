@@ -36,10 +36,14 @@ function! s:InsideWSL()
 endfunction
 
 function! VimwikiLinkHandler(link)
+  " if link doesn't start with https:
+  " return 0, meaning we want to use the default link handler
+  if a:link !~# '^https:'
+    return 0
+  endif
   try
     if has('unix') && s:InsideWSL()
       let browser = '/mnt/c/Program Files/Mozilla Firefox/firefox.exe'
-      echo browser
       execute '! "'.browser.'" ' . a:link
       return 1
     endif
