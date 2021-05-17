@@ -52,5 +52,8 @@
   },
   "editor.accessibilitySupport": "off",
   "editor.suggestSelection": "first",
-  "python.languageServer": "Pylance"
+  "python.languageServer": "Pylance",
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
