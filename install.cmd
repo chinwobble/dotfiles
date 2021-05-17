@@ -25,4 +25,5 @@ mklink %appdata%\Code\User\keybindings.json %CD%\dotfiles\Code\User\keybindings.
 rd /Q /S %appdata%\Code\User\snippets\
 mklink /D %appdata%\Code\User\snippets %CD%\dotfiles\Code\User\snippets
 
+mklink %localappdata%\packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\localState\settings.json %userprofile%\dotfiles\settings.json
 popd
