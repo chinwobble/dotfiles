@@ -300,11 +300,12 @@ augroup quickfix
 augroup END
 " open new windows except quickfix maximised
 
-autocmd WinEnter * if &buftype == 'quickfix' | wincmd J | resize 9 | elseif &filetype != 'VimspectorPrompt'| wincmd _ | else | wincmd = | endif
+autocmd WinEnter * if &buftype == 'quickfix' | wincmd J | execute "resize" . ((&lines - len(winlayout()[1])) / 2) | elseif &filetype != 'VimspectorPrompt'| wincmd _ | else | wincmd = | endif
+
 
 let g:quickpeek_auto = v:true
 let g:quickpeek_popup_options = {
-      \ 'maxheight': 8
+      \ 'line': 1
       \ }
 " let g:quickpeek_popup_options = {'pos': 'topleft'}
 
