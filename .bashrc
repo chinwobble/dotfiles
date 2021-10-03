@@ -128,3 +128,13 @@ fi
 
 export PIPENV_VENV_IN_PROJECT=1
 export GPG_TTY=$(tty)
+
+# enable more globbing features in bash
+# allow ** patterns to recurisvely search folders
+shopt -s globstar
+# allow extended sync like:
+#  !(*.py|*.sql) not ending with .sql or .py
+#  *(*.py|*.sql) match files ending with .sql or .py
+shopt -s extglob
+# replace globs that have found nothing with nothing
+shopt -s nullglob
