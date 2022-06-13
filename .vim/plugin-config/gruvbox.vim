@@ -3,8 +3,7 @@ augroup gruvbox_customisation
   " make the colour the darker
   autocmd colorscheme gruvbox hi ToolbarButton ctermbg=235
   autocmd colorscheme gruvbox hi Pmenu ctermbg=235
-  autocmd colorscheme gruvbox hi PmenuSel ctermfg=275
-  autocmd colorscheme gruvbox hi PmenuSbar ctermbg=235
+  autocmd colorscheme gruvbox hi PmenuSel ctermfg=276 ctermbg=238 guibg=#665c54
   autocmd colorscheme gruvbox hi PmenuSbar ctermbg=235
   autocmd colorscheme gruvbox hi GruvboxRedUnderline cterm=underline
   autocmd colorscheme gruvbox hi Visual ctermbg=238
