@@ -12,7 +12,7 @@ if fn.empty(fn.glob(install_path)) > 0 then
     install_path,
   }
   print "Installing packer close and reopen Neovim..."
-  vim.cmd [[packadd packer.nvim]]
+  vim.cmd [[ packadd packer.nvim ]]
 end
 
 -- Autocommand that reloads neovim whenever you save the plugins.lua file
@@ -45,7 +45,7 @@ return packer.startup(function(use)
   use "gruvbox-community/gruvbox"
   -- use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
   -- use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
-  -- use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
+  use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
   -- use "numToStr/Comment.nvim" -- Easily comment stuff
   -- use "kyazdani42/nvim-web-devicons"
   -- use "kyazdani42/nvim-tree.lua"
@@ -77,7 +77,7 @@ return packer.startup(function(use)
   use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 
   -- -- LSP
-  -- use "neovim/nvim-lspconfig" -- enable LSP
+  use "neovim/nvim-lspconfig" -- enable LSP
   -- use "williamboman/nvim-lsp-installer" -- simple to use language server installer
   -- use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
   -- use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
