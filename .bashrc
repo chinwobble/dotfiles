@@ -138,3 +138,17 @@ shopt -s globstar
 shopt -s extglob
 # replace globs that have found nothing with nothing
 shopt -s nullglob
+
+# automatically run .nvm use when we cd into a folder with
+_nvmrc_hook() {
+  if [[ $PWD == $PREV_PWD ]]; then
+    return
+  fi
+
+  PREV_PWD=$PWD
+  [[ -f ".nvmrc" ]] && nvm use
+}
+
+if ! [[ "${PROMPT_COMMAND:-}" =~ _nvmrc_hook ]]; then
+  PROMPT_COMMAND="_nvmrc_hook${PROMPT_COMMAND:+;$PROMPT_COMMAND}"
+fi
