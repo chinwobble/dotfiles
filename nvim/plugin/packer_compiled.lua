@@ -120,6 +120,16 @@ _G.packer_plugins = {
     path = "/home/vscode/.local/share/nvim/site/pack/packer/start/gruvbox",
     url = "https://github.com/gruvbox-community/gruvbox"
   },
+  ["mason-lspconfig.nvim"] = {
+    loaded = true,
+    path = "/home/vscode/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
+    url = "https://github.com/williamboman/mason-lspconfig.nvim"
+  },
+  ["mason.nvim"] = {
+    loaded = true,
+    path = "/home/vscode/.local/share/nvim/site/pack/packer/start/mason.nvim",
+    url = "https://github.com/williamboman/mason.nvim"
+  },
   ["nvim-autopairs"] = {
     loaded = true,
     path = "/home/vscode/.local/share/nvim/site/pack/packer/start/nvim-autopairs",
