@@ -60,6 +60,7 @@ return packer.startup(function(use)
   -- use "akinsho/bufferline.nvim"
   -- use "moll/vim-bbye"
   -- use "nvim-lualine/lualine.nvim"
+  use "vim-airline/vim-airline"
   -- use "akinsho/toggleterm.nvim"
   -- use "ahmedkhalf/project.nvim"
   -- use "lewis6991/impatient.nvim"

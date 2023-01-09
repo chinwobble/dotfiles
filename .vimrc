@@ -34,12 +34,14 @@ let &t_Ce = "\e[4:0m"
 filetype indent plugin on
 set nocompatible
 set hidden " keep abandoned buffers open
+set noswapfile
 syntax on
 set signcolumn=yes " always show sign column so it doesn't shifting the text
 set ignorecase
 set backspace=indent,eol,start
 set path+=**
 set wildmenu
+set wildoptions=pum
 set wildignore+=*/node_modules/*
 set wildignore+=batect
 set wildignore+=batect.cmd
@@ -93,6 +95,7 @@ source $HOME/.vim/plugin-config/vira.vim
 source $HOME/.vim/plugin-config/vimwiki.vim
 source $HOME/.vim/plugin-config/airline.vim
 source $HOME/.vim/plugin-config/gruvbox.vim
+source $HOME/.vim/plugin-config/fugitive.vim
 
 " WSL yank support
 let s:clip = "/mnt/c/Windows/System32/clip.exe"
@@ -254,26 +257,6 @@ function! MyFoldText()
   return sub . info
 endfunction
 
-" fugitive {{{1
-" cnoremap git Git
-map <leader>ga :Gwrite<CR>
-map <leader>gc :Gcommit<CR>
-map <leader>gp :Git push<CR>
-function! GitPushSetUpstream() abort
-  echo "Pushing..."
-  exe 'Git push -u origin ' . FugitiveHead()
-  echo "Pushed! 🤩"
-endfunction
-
-command! Gp call GitPushSetUpstream()
-nmap <leader>gp :call GitPushSetUpstream()<cr>
-nmap <leader>gj :diffget //3<CR>
-nmap <leader>gf :diffget //2<CR>
-nmap <leader>gs :G<CR>
-
-if filereadable($HOME . '/.vimrc.local')
-    source ~/.vimrc.local
-endif
 " ctrlp {{{1
 let g:ctrlp_extensions = ['tag', 'buffertag', 'quickfix',
                           \ 'undo', 'line', 'changes', 'mixed', 'bookmarkdir']
