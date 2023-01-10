@@ -3,4 +3,5 @@ if not status_ok then
   return
 end
 
+require("neodev").setup()
 require "user.lsp.mason"

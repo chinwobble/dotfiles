@@ -177,7 +177,7 @@ end
 
 local extended_schemas = extend(schemas, default_schemas)
 
-local opts = {
+return {
   settings = {
     json = {
       schemas = extended_schemas,
@@ -194,4 +194,3 @@ local opts = {
   },
 }
 
-return opts
