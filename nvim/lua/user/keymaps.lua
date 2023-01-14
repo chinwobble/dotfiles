@@ -70,3 +70,7 @@ keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
 keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 -- keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 --
+-- keymap("i", "<Tab>", "luasnip#expand_or_jumpable() ? <Plug>luasnip-expand-or-jump : <Tab>", {expr = true, silent = true })
+vim.cmd [[
+imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'
+]]
