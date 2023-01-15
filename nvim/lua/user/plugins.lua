@@ -47,7 +47,6 @@ return packer.startup(function(use)
   use "tpope/vim-vinegar"
   use "tpope/vim-surround"
   -- use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
-  -- use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
   use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
   use {
     "numToStr/Comment.nvim", -- Easily comment stuff
@@ -90,8 +89,15 @@ return packer.startup(function(use)
   -- use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
   -- use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
 
-  -- -- Telescope
-  -- use "nvim-telescope/telescope.nvim"
+  -- Telescope
+  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable 'make' == 1 }
+  use {
+    "nvim-telescope/telescope.nvim",
+    branch = '0.1.x',
+    requires = {
+      "nvim-lua/plenary.nvim"
+    }
+  }
   -- -- Treesitter
   use {
     "nvim-treesitter/nvim-treesitter",
@@ -105,6 +111,15 @@ return packer.startup(function(use)
 
   -- -- Git
   -- use "lewis6991/gitsigns.nvim"
+
+  use {
+    "preservim/tagbar"
+  }
+  --
+  use {
+    "tpope/vim-dadbod"
+  }
+  -- https://git.sr.ht/~whynothugo/lsp_lines.nvim
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

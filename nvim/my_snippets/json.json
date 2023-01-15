@@ -1,0 +1,46 @@
+{
+  "JSON Schema string": {
+    "prefix": "jss",
+    "body": [
+      "\"${1:fieldname}\": {",
+      "  \"type\": \"string\"",
+      "  \"description\": \"${2:description}\"",
+      "}"
+    ]
+  },
+  "JSON Schema array": {
+    "prefix": "jsa",
+    "body": [
+      "\"${1:fieldname}\": {",
+      "  \"type\": \"object\"",
+      "  \"description\": \"${2:description}\"",
+      "  \"items\": {",
+      "    \"type\": \"${3:nestedType}\"",
+      "    \"description\": \"${4:nestedDescription}\"",
+      "  }",
+      "  \"required\": []",
+      "}"
+    ]
+  },
+  "JSON Schema object": {
+    "prefix": "jso",
+    "body": [
+      "\"${1:fieldname}\": {",
+      "  \"type\": \"object\"",
+      "  \"description\": \"${2:description}\"",
+      "  \"properties\": {}",
+      "  \"required\": []",
+      "}"
+    ]
+  },
+  "JSON Schema int": {
+    "prefix": "jsi",
+    "body": [
+      "\"${1:fieldname}\": {",
+      "  \"type\": \"int\"",
+      "  \"description\": \"${2:description}\"",
+      "}"
+    ]
+  }
+
+}
