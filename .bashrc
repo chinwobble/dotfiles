@@ -152,3 +152,8 @@ _nvmrc_hook() {
 if ! [[ "${PROMPT_COMMAND:-}" =~ _nvmrc_hook ]]; then
   PROMPT_COMMAND="_nvmrc_hook${PROMPT_COMMAND:+;$PROMPT_COMMAND}"
 fi
+
+# immediately write the last command to history file
+if ! [[ "${PROMPT_COMMAND:-}" =~ "history -a" ]]; then
+  PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
+fi
