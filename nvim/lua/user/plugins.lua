@@ -13,6 +13,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 -- Install your plugins here
 return require("lazy").setup({
+  "ctrlpvim/ctrlp.vim",
   -- My plugins here
   "gruvbox-community/gruvbox",
   -- "lunarvim/darkplus.nvim",
@@ -61,7 +62,7 @@ return require("lazy").setup({
     "williamboman/mason.nvim",
     name = "mason",
     -- cmd = "Mason",
-    config = {
+    opts = {
       ui = {
         border = "none",
         icons = {
@@ -82,7 +83,7 @@ return require("lazy").setup({
       "LspInstall",
       "LspUninstall"
     },
-    config = {
+    opts = {
       ensure_installed = {
         "sumneko_lua",
         -- "cssls",
