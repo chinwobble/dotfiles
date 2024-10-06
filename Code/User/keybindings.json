@@ -14,5 +14,15 @@
     "key": "shift+alt+right",
     "command": "-editor.action.smartSelect.expand",
     "when": "editorTextFocus"
+  },
+  {
+    "key": "alt+j",
+    "command": "editor.action.moveLinesDownAction",
+    "when": "editorTextFocus && !editorReadonly && vim.active"
+  },
+  {
+    "key": "alt+k",
+    "command": "editor.action.moveLinesUpAction",
+    "when": "editorTextFocus && !editorReadonly && vim.active"
   }
 ]
