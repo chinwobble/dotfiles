@@ -41,7 +41,7 @@ set ignorecase
 set backspace=indent,eol,start
 set path+=**
 set wildmenu
-set wildoptions=pum
+" set wildoptions=pum
 set wildignore+=*/node_modules/*
 set wildignore+=batect
 set wildignore+=batect.cmd
@@ -97,16 +97,8 @@ source $HOME/.vim/plugin-config/airline.vim
 source $HOME/.vim/plugin-config/gruvbox.vim
 source $HOME/.vim/plugin-config/fugitive.vim
 source $HOME/.vim/plugin-config/fold.vim
-
-" WSL yank support
-let s:clip = "/mnt/c/Windows/System32/clip.exe"
-if executable(s:clip)
-  noremap "+p :exe 'norm a'.system('/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -Command Get-Clipboard')<CR>
-  augroup wslyank
-    autocmd!
-    autocmd TextYankPost * if v:event.operator ==# 'y' | call system(s:clip, @0) | endif
-  augroup end
-endif
+source $HOME/.vim/plugin-config/clipboard.vim
+source $HOME/.vim/plugin-config/ctrlp.vim
 " indentline {{{1 "
 let g:indentLine_showFirstIndentLevel = 1
 let g:indentLine_setConceal = 0
@@ -197,13 +189,6 @@ nnoremap <Leader>sp :OmniSharpStopServer<CR>
 " Enable snippet completion
 " let g:OmniSharp_want_snippet=1
 
-
-" ctrlp {{{1
-let g:ctrlp_extensions = ['tag', 'buffertag', 'quickfix',
-                          \ 'undo', 'line', 'changes', 'mixed', 'bookmarkdir']
-
-" exclude dotnet build artifacts
-let g:ctrlp_custom_ignore = 'bin\|obj\|git\|DS_Store\|node_modules\|_build\|esy.lock\|_esy'
 
 " dracula {{{1
 let g:dracula_italic = 0

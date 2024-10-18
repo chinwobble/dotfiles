@@ -8,6 +8,7 @@ source $HOME/.vim/plugin-config/fold.vim
 source $HOME/.vim/plugin-config/vimwiki.vim
 source $HOME/.vim/plugin-config/clipboard.vim
 source $HOME/.vim/plugin-config/tagbar.vim
+source $HOME/.vim/plugin-config/ctrlp.vim
 ]]
 require "user.colourscheme"
 require "user.windows"
