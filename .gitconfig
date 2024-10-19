@@ -6,6 +6,7 @@
 
 [push]
 	default = current
+	tags = true
 [diff]
 	tool = vimdiff
 [merge]
