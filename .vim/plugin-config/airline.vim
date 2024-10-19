@@ -58,4 +58,17 @@ let g:airline_section_x = airline#section#create(
 " %{airline#util#prepend(airline#extensions#omnisharp#server_status(),0)}
 " %{airline#util#prepend("",0)}
 " %{airline#util#wrap(airline#parts#filetype(),0)}
-"
+let g:airline_theme_patch_func = 'AirlineThemePatch'
+function! AirlineThemePatch(palette)
+  if g:airline_theme == 'dark'
+    for colors in values(a:palette.inactive)
+      " make all the fgcolors ligher
+      " colors[0] means guifg
+      " colors[1] means guibg
+      " colors[2] means termfg
+      " colors[3] means termbg
+      let colors[0] = '#cccccc'
+      let colors[2] = 250
+    endfor
+  endif
+endfunction
