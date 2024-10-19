@@ -42,7 +42,6 @@ return require("lazy").setup({
   -- "lukas-reineke/indent-blankline.nvim",
   -- "goolord/alpha-nvim",
   -- "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight,
-  -- "folke/which-key.nvim",
 
   -- cmp plugins
   "hrsh7th/nvim-cmp", -- The completion plugin
@@ -50,55 +49,22 @@ return require("lazy").setup({
   "hrsh7th/cmp-path", -- path completions,
   "hrsh7th/cmp-cmdline", -- cmdline completions,
   "saadparwaiz1/cmp_luasnip", -- snippet completions,
-  "hrsh7th/cmp-nvim-lsp",
 
   -- snippets
   "L3MON4D3/LuaSnip", --snippet engine,
   "rafamadriz/friendly-snippets", -- a bunch of snippets to use,
 
-  -- -- LSP
-  "neovim/nvim-lspconfig", -- enable LSP,
+  -- LSP
   {
-    "williamboman/mason.nvim",
-    name = "mason",
-    -- cmd = "Mason",
-    opts = {
-      ui = {
-        border = "none",
-        icons = {
-          package_installed = "◍",
-          package_pending = "◍",
-          package_uninstalled = "◍",
-        },
-      },
-      log_level = vim.log.levels.INFO,
-      max_concurrent_installers = 4,
-    }
-  }, -- simple to use language server installer,
-  {
-    "williamboman/mason-lspconfig.nvim", -- simple to use language server installer,
-    name = "mason-lspconfig",
-    cmd = {
-      "Mason",
-      "LspInstall",
-      "LspUninstall"
-    },
-    opts = {
-      ensure_installed = {
-        "sumneko_lua",
-        -- "cssls",
-        -- "html",
-        -- "tsserver",
-        "pyright",
-        -- "bashls",
-        "jsonls",
-        -- "yamlls",
-      },
-      automatic_installation = true,
+    "neovim/nvim-lspconfig", -- enable LSP,
+    dependencies = {
+      { 'williamboman/mason.nvim', config = true },
+      'williamboman/mason-lspconfig.nvim',
+      'hrsh7th/cmp-nvim-lsp',
+      'WhoIsSethDaniel/mason-tool-installer.nvim',
     }
   },
   "j-hui/fidget.nvim",
-  "folke/neodev.nvim",
   -- "tamago324/nlsp-settings.nvim" -- language server settings defined in json for,
   -- "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters,
 
@@ -121,6 +87,53 @@ return require("lazy").setup({
     build = ":TSUpdate",
     dependencies = {
       'nvim-treesitter/nvim-treesitter-textobjects',
+    },
+    opts = {
+      ensure_installed = {
+        "lua",
+        "go",
+        "python",
+        "typescript",
+        "vimdoc",
+        "bash",
+        "diff",
+        "html",
+        "markdown",
+        "markdown_inline",
+        "query",
+        "vim"
+      },
+      sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
+      ignore_install = { "" }, -- List of parsers to ignore installing
+      highlight = {
+        enable = true, -- false will disable the whole extension
+        disable = { "" }, -- list of language that will be disabled
+        additional_vim_regex_highlighting = true,
+      },
+      indent = { enable = true, disable = { "yaml" } },
+      incremental_selection = {
+        enable = true,
+        keymaps = {
+          init_selection = "<C-a>",
+          node_incremental = "<C-a>",
+          scope_incremental = "grc",
+          node_decremental = "grm",
+        },
+      },
+      textobjects = {
+        select = {
+          enable = true,
+          lookahead = true,
+          keymaps = {
+            ['aa'] = '@parameter.outer',
+            ['ia'] = '@parameter.inner',
+            ['af'] = '@function.outer',
+            ['if'] = '@function.inner',
+            ['ac'] = '@class.outer',
+            ['ic'] = '@class.inner',
+          },
+        },
+      },
     }
   },
 
@@ -136,6 +149,7 @@ return require("lazy").setup({
   -- Put this at the end after all plugins
   {
     "folke/which-key.nvim",
+    event = 'VimEnter',
     config = function()
       vim.o.timeoutlen = 300
       require("which-key").setup {

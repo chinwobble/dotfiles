@@ -5,7 +5,7 @@ if !exists('g:airline_symbols')
   let g:airline_symbols.linenr = ''
 endif
 
-let g:airline_theme='gruvbox_dark_hard'
+" let g:airline_theme='gruvbox_dark_hard'
 let g:airline_section_z = "%p%%%4l:%3v"
 let g:airline_mode_map = {
       \ '__'     : '-',

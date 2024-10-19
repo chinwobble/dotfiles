@@ -10,12 +10,11 @@ source $HOME/.vim/plugin-config/clipboard.vim
 source $HOME/.vim/plugin-config/tagbar.vim
 source $HOME/.vim/plugin-config/ctrlp.vim
 ]]
-require "user.colourscheme"
+-- require "user.colourscheme"
 require "user.windows"
 require "user.cmp"
 require "user.quickfix"
 
 require "user.lsp"
 require "user.autopairs"
-require "user.treesitter"
 require "user.telescope"
