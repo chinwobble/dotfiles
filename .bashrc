@@ -157,3 +157,4 @@ fi
 if ! [[ "${PROMPT_COMMAND:-}" =~ "history -a" ]]; then
   PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
 fi
+export EDITOR=vi

@@ -17,4 +17,4 @@ require "user.quickfix"
 
 require "user.lsp"
 require "user.autopairs"
-require "user.telescope"
+-- require "user.telescope"
