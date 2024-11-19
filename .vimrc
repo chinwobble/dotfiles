@@ -1,7 +1,4 @@
 call plug#begin('~/.vim/plugged')
-Plug 'rafcamlet/coc-nvim-lua'
-Plug 'dense-analysis/ale'
-Plug 'omnisharp/omnisharp-vim'
 Plug 'terryma/vim-expand-region'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'vim-airline/vim-airline'
@@ -15,12 +12,8 @@ Plug 'airblade/vim-rooter'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'honza/vim-snippets'
 Plug 'Yggdroot/indentLine'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" Plug 'godlygeek/tabular'
 Plug 'vimwiki/vimwiki', {'branch': 'dev'}
 Plug 'AndrewRadev/quickpeek.vim'
-Plug 'n0v1c3/vira', { 'do': './install.sh', 'branch': 'dev' }
-Plug 'puremourning/vimspector'
 Plug 'Raimondi/delimitMate'
 call plug#end()
 packadd! matchit
@@ -90,8 +83,6 @@ nnoremap <Leader>ev :e ~/dotfiles/.vimrc<CR>
 " close both files for a diff
 nnoremap <silent> <leader>q :quitall<CR>
 
-source $HOME/.vim/plugin-config/coc.vim
-source $HOME/.vim/plugin-config/vira.vim
 source $HOME/.vim/plugin-config/vimwiki.vim
 source $HOME/.vim/plugin-config/airline.vim
 source $HOME/.vim/plugin-config/gruvbox.vim
