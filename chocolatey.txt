@@ -1,4 +1,3 @@
-cinst firanf -y
 cinst licecap -y
 cinst git -y
 cinst f.lux -y
@@ -8,14 +7,10 @@ cinst royalts -y
 cinst deluge -y
 cinst autohotkey -y
 cinst dropbox -y
-cinst r.studio -y
-cinst r.project -y
-cinst yarn -y
-cinst nodejs-lts -y
 cinst adobereader -y
 cinst gh -y
 cinst perfview -y
 cinst superbenchmarker -y
 cinst servicebusexplorer -y
-cinst seq -y
-cinst vimgrep -y
+cinst ripgrep -y
+cinst windirstat -y
