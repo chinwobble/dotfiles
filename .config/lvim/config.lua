@@ -50,9 +50,13 @@ vim.cmd [[
 
 
 vim.o.winminheight = 0
+lvim.builtin.gitsigns.active = false
+lvim.colorscheme = 'darkplus'
+
 
 lvim.plugins = {
   { "tpope/vim-vinegar" },
+  { "lunarvim/darkplus.nvim" },
   { "tpope/vim-surround" },
   {
     "hedyhli/outline.nvim",
