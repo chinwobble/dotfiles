@@ -47,3 +47,13 @@ pip install databricks-cli
 conda env config vars set DATABRICKS_HOST=https://australiaeast.azuredatabricks.net
 conda env config vars set DATABRICKS_TOKEN=xxxxxx
 ```
+
+### Setup linux with standard tools
+```bash
+sudo apt install jq ripgrep make unzip zip
+```
+
+### Setup Linux c++ tools
+```bash
+sudo apt install socat cmake g++ gdb 
+```

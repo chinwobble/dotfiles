@@ -31,3 +31,5 @@
 	se = !git rev-list --all | xargs git grep -F
 [credential]
 	helper = store
+[user]
+	name = benney
