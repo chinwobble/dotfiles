@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>Add CQRS Query</Title>
+			<Author>KO</Author>
+			<Description>Adds boilerplate code for creating a CQRS Query</Description>
+			<Shortcut>cqrsq</Shortcut>
+		</Header>
+		<Snippet>
+			<Imports>
+				<Import>
+					<Namespace>System.Linq</Namespace>
+				</Import>
+				<Import>
+					<Namespace>System.Threading</Namespace>
+				</Import>
+				<Import>
+					<Namespace>System.Threading.Tasks</Namespace>
+				</Import>
+				<Import>
+					<Namespace>MediatR</Namespace>
+				</Import>
+				<Import>
+					<Namespace>MyProject.EntityFramework</Namespace>
+				</Import>
+				<Import>
+					<Namespace>Skoruba.IdentityServer4.Admin.EntityFramework.Extensions.Extensions</Namespace>
+				</Import>
+			</Imports>
+			<Declarations>
+				<Literal>
+					<ID>classname</ID>
+					<ToolTip>Replace with specified name</ToolTip>
+					<Default>MyQuery</Default>
+				</Literal>
+				<Object>
+					<ID>response</ID>
+					<ToolTip>Replace with the response type.</ToolTip>
+					<Default>CommandResponse</Default>
+				</Object>
+			</Declarations>
+<Code Language="CSharp"><![CDATA[public record $classname$
+    : IRequest<$classname$.Response>
+{
+	public record Response
+	{
+	}
+
+	public class $classname$Handler
+	: IRequestHandler<$classname$, Response>
+	{
+		private readonly IDPDbContext _db;
+
+		public $classname$Handler(IDPDbContext db)
+		{
+			_db = db;
+		}
+
+		public async Task<Response> Handle($classname$ request, CancellationToken cancellationToken)
+		{
+			throw new NotImplementedException();
+			$end$
+		}
+	}
+}]]></Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

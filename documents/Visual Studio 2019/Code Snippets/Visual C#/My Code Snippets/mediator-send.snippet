@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>mediator send</Title>
+			<Author>BA</Author>
+			<Description>mediator send</Description>
+			<Shortcut>msend</Shortcut>
+		</Header>
+		<Snippet>
+			<Imports>
+				<Import>
+					<Namespace>System</Namespace>
+				</Import>
+				<Import>
+					<Namespace>System.Linq</Namespace>
+				</Import>
+				<Import>
+					<Namespace>System.Threading.Tasks</Namespace>
+				</Import>
+			</Imports>
+			<Declarations>
+				<Literal>
+					<ID>requestname</ID>
+					<ToolTip>Replace with specified name</ToolTip>
+					<Default>MyRequest</Default>
+				</Literal>
+				<Literal>
+					<ID>responsevar</ID>
+					<ToolTip>Replace with specified name</ToolTip>
+					<Default>response</Default>
+				</Literal>
+			</Declarations>
+<Code Language="CSharp" kind="method decl"><![CDATA[var $responsevar$ = await _mediator.Send(new $requestname$($end$));]]>
+</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>
