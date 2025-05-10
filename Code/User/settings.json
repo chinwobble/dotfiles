@@ -5,7 +5,8 @@
   "files.trimTrailingWhitespace": true,
   "files.associations": {
     "*.frm": "vb",
-    "*.ctl": "vb"
+    "*.ctl": "vb",
+    "*.form": "json"
   },
   "editor.fontWeight": "500",
   "editor.cursorStyle": "line",
@@ -13,14 +14,13 @@
   "editor.cursorBlinking": "solid",
   "prettier.tabWidth": 2,
   "editor.renderWhitespace": "all",
-  "window.zoomLevel": 0,
+  "window.zoomLevel": 1,
   "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "vscode.json-language-features"
   },
   "editor.minimap.enabled": false,
   "workbench.sideBar.location": "right",
   "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
-  "workbench.colorTheme": "Gruvbox Dark Hard",
   "diffEditor.renderSideBySide": false,
   "extensions.ignoreRecommendations": true,
   "go.formatTool": "goimports",
@@ -39,12 +39,12 @@
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "workbench.editorAssociations": [
-    {
-      "viewType": "jupyter.notebook.ipynb",
-      "filenamePattern": "*.ipynb"
-    }
-  ],
+  "[go]": {
+    "editor.formatOnSave": true
+  },
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter-notebook"
+  },
   "files.watcherExclude": {
     "**/.bloop": true,
     "**/.metals": true,
@@ -55,5 +55,43 @@
   "python.languageServer": "Pylance",
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "notebook.cellToolbarLocation": {
+    "default": "right",
+    "jupyter-notebook": "left"
+  },
+  "terminal.integrated.commandsToSkipShell": ["language-julia.interrupt"],
+  "julia.symbolCacheDownload": true,
+  "julia.enableTelemetry": true,
+  "vim.useSystemClipboard": true,
+  "vim.handleKeys": {
+    "<C-d>": true,
+    "<C-p>": false,
+    "<C-z>": false
+  },
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<Leader>", "t"],
+      "commands": ["workbench.action.gotoSymbol"]
+    },
+    {
+      "before": ["g", "r"],
+      "commands": ["references-view.findReferences"]
+    }
+  ],
+  "debug.javascript.autoAttachFilter": "disabled",
+  "prisma.showPrismaDataPlatformNotification": false,
+  "remote.autoForwardPortsSource": "hybrid",
+  "[templ]": {
+    "editor.defaultFormatter": "a-h.templ"
+  },
+  "vim.highlightedyank.enable": true,
+  "cmake.pinnedCommands": [
+    "workbench.action.tasks.configureTaskRunner",
+    "workbench.action.tasks.runTask"
+  ],
+  "cmake.options.statusBarVisibility": "compact"
 }
