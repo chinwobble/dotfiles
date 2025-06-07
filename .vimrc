@@ -84,6 +84,41 @@ nnoremap <Leader>ev :e ~/dotfiles/.vimrc<CR>
 " close both files for a diff
 nnoremap <silent> <leader>q :quitall<CR>
 
+" esc to return to normal mode in vim terminal mode
+tnoremap <Esc> <C-W>N
+" Function to switch to terminal or create new one
+function! SwitchToTerminal()
+    " Look for existing terminal buffers
+    let term_buffers = filter(range(1, bufnr('$')), 'getbufvar(v:val, "&buftype") == "terminal"')
+
+    if len(term_buffers) > 0
+        " Find if any terminal buffer is visible in current tab
+        let visible_terms = []
+        for bufnum in term_buffers
+            let winnum = bufwinnr(bufnum)
+            if winnum != -1
+                call add(visible_terms, winnum)
+            endif
+        endfor
+
+        if len(visible_terms) > 0
+            " Switch to the first visible terminal window
+            execute visible_terms[0] . 'wincmd w'
+            normal i
+        else
+            " Open the first terminal buffer in current window
+            execute 'buffer ' . term_buffers[0]
+            normal i
+        endif
+    else
+        " No terminal exists, create a new one
+        terminal
+    endif
+endfunction
+
+" Map Ctrl+\ to switch to terminal
+nnoremap <C-\> :call SwitchToTerminal()<CR>
+
 source $HOME/.vim/plugin-config/vimwiki.vim
 source $HOME/.vim/plugin-config/airline.vim
 source $HOME/.vim/plugin-config/gruvbox.vim
