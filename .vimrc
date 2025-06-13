@@ -236,11 +236,24 @@ augroup quickfix
 augroup END
 " open new windows except quickfix maximised
 
-autocmd WinEnter * if &buftype == 'quickfix' | wincmd J | execute "resize" . ((&lines - len(winlayout()[1])) / 2) | elseif &filetype != 'VimspectorPrompt'| wincmd _ | else | wincmd = | endif
+function! HandleWinEnter()
+  if &buftype == 'quickfix'
+      " This is a quickfix window
+      wincmd J
+      execute "resize" . ((&lines - len(winlayout()[1])) / 2)
+  elseif &filetype == 'VimspectorPrompt'
+    wincmd =
+  else
+    wincmd _
+  endif
+endfunction
+autocmd BufWinEnter * :call HandleWinEnter()
+autocmd WinEnter * :call HandleWinEnter()
 
-
-let g:quickpeek_auto = v:true
+let g:quickpeek_auto = v:false
+" set max height to 3 so that it doesn't go off screen
 let g:quickpeek_popup_options = {
+      \ 'maxheight': 3,
       \ 'line': 1
       \ }
 " let g:quickpeek_popup_options = {'pos': 'topleft'}
