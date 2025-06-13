@@ -1,6 +1,6 @@
 augroup gruvbox_customisation
   autocmd!
-  " make the colour the darker
+  " make the background colour the darker
   autocmd colorscheme gruvbox hi ToolbarButton ctermbg=235
   autocmd colorscheme gruvbox hi Pmenu ctermbg=235
   autocmd colorscheme gruvbox hi PmenuSel ctermfg=276 ctermbg=238 guibg=#665c54
@@ -8,6 +8,8 @@ augroup gruvbox_customisation
   autocmd colorscheme gruvbox hi GruvboxRedUnderline cterm=underline
   autocmd colorscheme gruvbox hi Visual ctermbg=238
   autocmd colorscheme gruvbox hi cursorLine ctermbg=235
+  " do not highlight the selected line in the quickfix window yellow
+  autocmd colorscheme gruvbox hi QuickFixLine cterm=bold ctermbg=NONE ctermfg=NONE
 augroup END
 
 " let g:gruvbox_undercurl='0'
