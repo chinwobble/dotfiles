@@ -57,3 +57,27 @@ sudo apt install jq ripgrep make unzip zip
 ```bash
 sudo apt install socat cmake g++ gdb 
 ```
+
+### Setup Postgres on Ubuntu
+```bash
+# install postgres
+sudo apt install postgresql-16
+sudo su - postgres
+createuser -d benney
+```
+
+Edit the hba file to allow local user login
+```bash
+sudo vim /etc/postgresql/16/main/pg_hba.conf
+```
+
+```
+database  user   method
+all       all    peer
+```
+
+Restart the server
+```
+sudo service postgresql restart
+```
+
