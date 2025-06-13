@@ -2,8 +2,8 @@ autocmd Syntax c,csharp,cpp,xml,html,json setlocal foldmethod=syntax
 autocmd Syntax vim setlocal foldmethod=marker
 autocmd Syntax vim setlocal foldlevel=0
 autocmd Syntax c,csharp,cpp,xml,html,json normal zR
-autocmd Syntax yaml setlocal foldmethod=indent
-autocmd Syntax yaml normal zR
+autocmd Syntax yaml* setlocal foldmethod=indent
+autocmd Syntax yaml* normal zR
 
 " change fold text to display contents
 " https://dhruvasagar.com/2013/03/28/vim-better-foldtext
