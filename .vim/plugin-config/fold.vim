@@ -10,7 +10,7 @@ autocmd Syntax yaml* normal zR
 function! NeatFoldText()
   let line = ' ' . substitute(getline(v:foldstart), '^\\s*\"\\?\\s*\\|\\s*\"\\?\\s*{{' . '{\\d*\\s*', '', 'g') . ' '
   let lines_count = v:foldend - v:foldstart + 1
-  let lines_count_text = '| ' . printf("%10s\", lines_count . '
+  let lines_count_text = '| ' . printf("%10s\", lines_count)
   let foldchar = matchstr(&amp;fillchars, 'fold:\\zs.')
   let foldtextstart = strpart('+' . repeat(foldchar, v:foldlevel*2) . line, 0, (winwidth(0)*2)/3)
   let foldtextend = lines_count_text . repeat(foldchar, 8)
