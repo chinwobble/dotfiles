@@ -10,6 +10,11 @@ augroup gruvbox_customisation
   autocmd colorscheme gruvbox hi cursorLine ctermbg=235
   " do not highlight the selected line in the quickfix window yellow
   autocmd colorscheme gruvbox hi QuickFixLine cterm=bold ctermbg=NONE ctermfg=NONE
+
+  " do not change the background colour. Make errors and warning red text same
+  " bg
+  autocmd colorscheme gruvbox hi! link ErrorMsg GruvboxRedBold
+  autocmd colorscheme gruvbox hi! link Error GruvboxRedBold
 augroup END
 
 " let g:gruvbox_undercurl='0'
