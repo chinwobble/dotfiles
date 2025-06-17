@@ -55,7 +55,7 @@ sudo apt install jq ripgrep make unzip zip
 
 ### Setup Linux c++ tools
 ```bash
-sudo apt install socat cmake g++ gdb 
+sudo apt install socat cmake g++ gdb
 ```
 
 ### Setup Postgres on Ubuntu
@@ -64,6 +64,10 @@ sudo apt install socat cmake g++ gdb
 sudo apt install postgresql-16
 sudo su - postgres
 createuser -d benney
+```
+
+'''sql
+ALTER USER user_name WITH PASSWORD 'new_password';
 ```
 
 Edit the hba file to allow local user login
@@ -81,3 +85,11 @@ Restart the server
 sudo service postgresql restart
 ```
 
+## Install JDK on ubuntu
+```bash
+sudo apt install openjdk-21-jdk-headless
+sudo apt install openjdk-17-jdk-headless
+sudo apt install openjdk-11-jdk-headless
+# choose a specific java version
+sudo update-java-alternatives -s java-1.21.0-openjdk-amd64
+```
