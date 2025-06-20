@@ -4,6 +4,7 @@ let g:vimwiki_key_mappings =
     \ 'headers': 0,
     \ 'table_mappings': 0,
     \ }
+let g:vimwiki_folding = 'syntax'
 
 let g:vimwiki_hl_cb_checked = 2
 let g:vimwiki_list = [
