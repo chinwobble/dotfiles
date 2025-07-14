@@ -56,3 +56,7 @@ function! VimwikiLinkHandler(link)
   endtry
   return 0
 endfunction
+
+command! -nargs=1 Tags cexpr map(taglist(<q-args>), 'v:val.filename') | copen
+
+nnoremap <Leader>wt :e ~/vimwiki/tasks.md<CR>
