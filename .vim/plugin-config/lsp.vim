@@ -16,9 +16,11 @@ function! s:on_lsp_buffer_enabled() abort
     nnoremap <buffer> <expr><c-f> lsp#scroll(+4)
     nnoremap <buffer> <expr><c-d> lsp#scroll(-4)
 
+    let g:lsp_hover_ui = 'float'
+    let g:lsp_float_max_width = 0
     let g:lsp_format_sync_timeout = 1000
     autocmd! BufWritePre *.rs,*.go call execute('LspDocumentFormatSync')
-    
+
     " refer to doc to add more commands
 endfunction
 
