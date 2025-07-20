@@ -15,6 +15,13 @@ augroup gruvbox_customisation
   " bg
   autocmd colorscheme gruvbox hi! link ErrorMsg GruvboxRedBold
   autocmd colorscheme gruvbox hi! link Error GruvboxRedBold
+  " increase contrast on foldded text. change ctermfg from 245 to 246
+  autocmd colorscheme gruvbox hi folded term=standout ctermfg=246 ctermbg=237
+  " lsp virtual text
+  autocmd colorscheme gruvbox hi link LspHintVirtualText GruvboxBlue
+  autocmd colorscheme gruvbox hi link LspInformationVirtualText GruvboxBlue
+  autocmd colorscheme gruvbox hi link LspWarningVirtualText GruvboxYellow
+  autocmd colorscheme gruvbox hi link LspErrorVirtualText GruvboxRed
 augroup END
 
 " let g:gruvbox_undercurl='0'
