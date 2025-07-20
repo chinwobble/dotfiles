@@ -17,6 +17,8 @@ Plug 'vimwiki/vimwiki', {'branch': 'dev'}
 Plug 'AndrewRadev/quickpeek.vim'
 Plug 'Raimondi/delimitMate'
 Plug 'prabirshrestha/vim-lsp'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'mattn/vim-lsp-settings'
 Plug 'dense-analysis/ale'
 call plug#end()
@@ -131,6 +133,7 @@ source $HOME/.vim/plugin-config/clipboard.vim
 source $HOME/.vim/plugin-config/ctrlp.vim
 source $HOME/.vim/plugin-config/lsp.vim
 source $HOME/.vim/plugin-config/ale.vim
+source $HOME/.vim/plugin-config/autocomplete.vim
 " indentline {{{1 "
 let g:indentLine_showFirstIndentLevel = 1
 let g:indentLine_setConceal = 0
