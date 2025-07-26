@@ -21,6 +21,7 @@ Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'mattn/vim-lsp-settings'
 Plug 'dense-analysis/ale'
+Plug 'ubaldot/vim-outline'
 call plug#end()
 packadd! matchit
 " needed to get cursor block in mingw64 let &t_ti.="\e[1 q"
@@ -134,6 +135,7 @@ source $HOME/.vim/plugin-config/ctrlp.vim
 source $HOME/.vim/plugin-config/lsp.vim
 source $HOME/.vim/plugin-config/ale.vim
 source $HOME/.vim/plugin-config/autocomplete.vim
+source $HOME/.vim/plugin-config/outline.vim
 " indentline {{{1 "
 let g:indentLine_showFirstIndentLevel = 1
 let g:indentLine_setConceal = 0
