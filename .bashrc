@@ -170,3 +170,12 @@ if command -v kubectl >/dev/null 2>&1
 then
   source <(kubectl completion bash)
 fi
+export MAKEFLAGS="-j"
+function cds() {
+  cd ~/s/$(ls ~/s | fzf)
+}
+
+function vims() {
+  cd ~/s/$(ls ~/s | fzf)
+  vim
+}
