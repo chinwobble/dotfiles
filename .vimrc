@@ -6,6 +6,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-dispatch'
 Plug 'jremmen/vim-ripgrep'
 Plug 'gruvbox-community/gruvbox'
 Plug 'sheerun/vim-polyglot'
@@ -22,6 +23,7 @@ Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'mattn/vim-lsp-settings'
 Plug 'dense-analysis/ale'
 Plug 'ubaldot/vim-outline'
+Plug 'jalvesaq/vimcmdline'
 call plug#end()
 packadd! matchit
 " needed to get cursor block in mingw64 let &t_ti.="\e[1 q"
@@ -62,6 +64,8 @@ set winminheight=0
 set number relativenumber
 map <C-J> <C-W>j
 map <C-K> <C-W>k
+tmap <C-J> <C-W>j
+tmap <C-K> <C-W>k
 
 " Map Ctrl-Backspace to delete the previous word in insert mode.
 inoremap <C-BS> <C-\><C-o>db
@@ -249,3 +253,5 @@ function s:scroll_cursor_popup(down)
   call popup_setoptions(winid, {'firstline' : pp.firstline + (a:down ? 5 : -5) })
   return 1
 endfunction
+
+let g:cmdline_in_buffer = 1
