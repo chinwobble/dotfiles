@@ -88,8 +88,13 @@ sudo service postgresql restart
 ## Install JDK on ubuntu
 ```bash
 sudo apt install openjdk-21-jdk-headless
-sudo apt install openjdk-17-jdk-headless
+sudo apt install openjdk-17-jdk
 sudo apt install openjdk-11-jdk-headless
 # choose a specific java version
 sudo update-java-alternatives -s java-1.21.0-openjdk-amd64
+```
+
+## Setup Language Servers for vim on linux
+```
+:LspInstallServer gopls
 ```
