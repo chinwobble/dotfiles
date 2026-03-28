@@ -9,4 +9,5 @@ ln -s ~/dotfiles/.bashrc ~/.bashrc
 ln -s ~/dotfiles/.inputrc ~/.inputrc
 ln -s ~/dotfiles/.gitconfig ~/.gitconfig
 ln -s ~/dotfiles/nvim ~/.config/nvim
+mkdir -p ~/.config/lvim
 ln -s ~/dotfiles/.config/lvim/config.lua ~/.config/lvim/config.lua
