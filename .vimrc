@@ -23,7 +23,7 @@ Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'mattn/vim-lsp-settings'
 Plug 'dense-analysis/ale'
 Plug 'ubaldot/vim-outline'
-Plug 'jalvesaq/vimcmdline'
+Plug 'jalvesaq/hlterm', {'branch': 'vim'}
 call plug#end()
 packadd! matchit
 " needed to get cursor block in mingw64 let &t_ti.="\e[1 q"
