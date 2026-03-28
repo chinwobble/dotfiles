@@ -9,13 +9,11 @@
                 "action": "copy",
                 "singleLine": false
             },
-            "id": "User.copy.644BA8F2",
-            "keys": "ctrl+c"
+            "id": "User.copy.644BA8F2"
         },
         {
             "command": "find",
-            "id": "User.find",
-            "keys": "ctrl+shift+f"
+            "id": "User.find"
         },
         {
             "command": 
@@ -24,17 +22,36 @@
                 "split": "auto",
                 "splitMode": "duplicate"
             },
-            "id": "User.splitPane.A6751878",
-            "keys": "alt+shift+d"
+            "id": "User.splitPane.A6751878"
         }
     ],
+    "copyFormatting": "none",
+    "copyOnSelect": false,
     "defaultProfile": "{00000000-0000-0000-ba54-000000000002}",
     "disabledProfileSources": 
     [
         "Windows.Terminal.PowershellCore"
     ],
+    "keybindings": 
+    [
+        {
+            "id": "User.copy.644BA8F2",
+            "keys": "ctrl+c"
+        },
+        {
+            "id": "Terminal.PasteFromClipboard",
+            "keys": "ctrl+shift+v"
+        },
+        {
+            "id": "unbound",
+            "keys": "ctrl+v"
+        },
+        {
+            "id": "User.find",
+            "keys": "ctrl+shift+f"
+        }
+    ],
     "launchMode": "maximized",
-    "multiLinePasteWarning": false,
     "newTabMenu": 
     [
         {
@@ -48,7 +65,7 @@
             "cursorShape": "emptyBox",
             "font": 
             {
-                "face": "Consolas NF",
+                "face": "Cascadia Mono",
                 "size": 27
             },
             "padding": "0, 0, 0, 0",
@@ -65,22 +82,7 @@
             },
             {
                 "colorScheme": "Gruvbox Dark",
-                "font": 
-                {
-                    "face": "CaskaydiaCove Nerd Font Mono"
-                },
-                "guid": "{07b52e3e-de2c-5db4-bd2d-ba144ed6c273}",
-                "hidden": false,
-                "name": "Ubuntu-20.04",
-                "source": "Windows.Terminal.Wsl"
-            },
-            {
-                "colorScheme": "Gruvbox Dark",
                 "commandline": "C:\\WINDOWS\\system32\\wsl.exe -d Ubuntu-24.04",
-                "font": 
-                {
-                    "face": "CaskaydiaCove Nerd Font Mono"
-                },
                 "guid": "{fc65558c-56e5-46dd-a097-36e6063361e3}",
                 "hidden": false,
                 "icon": "ms-appx:///ProfileIcons/{9acb9455-ca41-5af7-950f-6bca1bc9722f}.png",
@@ -90,7 +92,7 @@
             {
                 "background": "#000000",
                 "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
-                "hidden": false,
+                "hidden": true,
                 "name": "Windows PowerShell"
             },
             {
@@ -144,5 +146,7 @@
             "yellow": "#D79921"
         }
     ],
-    "themes": []
+    "showTabsFullscreen": true,
+    "themes": [],
+    "warning.multiLinePaste": false
 }
