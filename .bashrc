@@ -1,4 +1,6 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
+#
+#
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
@@ -86,6 +88,8 @@ if [ -x /usr/bin/dircolors ]; then
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
+    alias k='kubectl'
+
 fi
 
 # colored GCC warnings and errors
@@ -170,12 +174,21 @@ if command -v kubectl >/dev/null 2>&1
 then
   source <(kubectl completion bash)
 fi
+alias g='git'
+
 export MAKEFLAGS="-j"
+
+
 function cds() {
-  cd ~/s/$(ls ~/s | fzf)
+  cd $(realpath ~/s/* ~/s/omg/* ~/s/zeroonelabs/* ~/s/vectorise-labs/* | fzf)
 }
 
 function vims() {
   cd ~/s/$(ls ~/s | fzf)
   vim
+}
+
+function killport() {
+  lsof -i :$1
+  lsof -ti :$1 | xargs kill
 }
