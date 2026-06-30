@@ -11,3 +11,4 @@ ln -s ~/dotfiles/.gitconfig ~/.gitconfig
 ln -s ~/dotfiles/nvim ~/.config/nvim
 mkdir -p ~/.config/lvim
 ln -s ~/dotfiles/.config/lvim/config.lua ~/.config/lvim/config.lua
+ln -s ~/dotfiles/.config/helix ~/.config/helix

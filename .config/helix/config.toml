@@ -1,0 +1,10 @@
+theme = "gruvbox_dark_harder"
+
+[editor]
+true-color = true
+
+[editor.soft-wrap]
+enable = true
+
+[editor.gutters]
+layout = ["diff", "diagnostics", "line-numbers"]

@@ -1,0 +1,16 @@
+[[language]]
+name = "c-sharp"
+language-id = "csharp"
+scope = "source.cs"
+injection-regex = "c-?sharp"
+file-types = ["cs", "csx"]
+roots = ["sln", "csproj", "fsproj", "vbproj", "props", "targets", "dll", "exe"]
+comment-token = "//"
+indent = { tab-width = 4, unit = "    " }
+
+[language-server.csharp-ls]
+command = "csharp-ls"
+
+[[language]]
+name = "c-sharp"
+language-servers = ["csharp-ls"]

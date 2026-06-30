@@ -92,6 +92,8 @@ sudo apt install openjdk-17-jdk
 sudo apt install openjdk-11-jdk-headless
 # choose a specific java version
 sudo update-java-alternatives -s java-1.21.0-openjdk-amd64
+# sdkman is used to install various java sdk like maven / gradle and spring cli
+curl -s "https://get.sdkman.io" | bash
 ```
 
 ## Setup Language Servers for vim on linux

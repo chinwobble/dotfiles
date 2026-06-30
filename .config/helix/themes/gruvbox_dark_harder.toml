@@ -1,0 +1,9 @@
+inherits = "gruvbox_dark_hard"
+
+[palette]
+bg0 = "#1C1C1C"   # main background
+bg0_s = "#32302f"
+bg1 = "#1C1C1C"
+bg2 = "#3c3836"
+bg3 = "#665c54"
+bg4 = "#7c6f64"
